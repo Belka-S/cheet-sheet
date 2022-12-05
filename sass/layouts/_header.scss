@@ -1,0 +1,32 @@
+.faq-list,
+.prodaction-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  & li {
+    list-style: none;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 2;
+
+    &:not(:first-of-type) {
+      margin-left: 20px;
+    }
+  }
+}
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.goit {
+  max-width: 40%;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.terminal {
+  max-width: 60%;
+  font-size: 15px;
+}
