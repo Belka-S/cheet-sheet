@@ -1,7 +1,7 @@
 .faq-list,
 .prodaction-list {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 
   & li {
@@ -10,8 +10,8 @@
     font-weight: 700;
     line-height: 2;
 
-    &:not(:first-of-type) {
-      margin-left: 20px;
+    &:not(:last-of-type) {
+      margin-right: 20px;
     }
   }
 }
@@ -24,7 +24,7 @@
 .goit {
   max-width: 40%;
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.23;
 }
 .terminal {
   max-width: 60%;
