@@ -106,33 +106,30 @@
         <ul>
           <li><b>cd</b> <i>directory-name</i> - change directory</li>
           <li><b>git clone</b> <i>https://link</i> - clone repository from GitHub</li>
-          <li><b>git status</b> - track files</li>
+          <li><b>git remote -v</b> - check connections between local files and GitHub</li>
+          <li><b>git remote set-url origin</b> <i>https://link</i> - set connections</li>
           <li><b>git add .</b> - save local changes in all files</li>
           <li><b>git commit -m</b> <i>“commit-name”</i> - add signature to changes</li>
-          <li><b>git commit -am</b> <i>“commit-name”</i> - save local changes add signature</li>
+          <li><b>git status</b> - track files</li>
+          <!-- <li><b>git commit -am</b> <i>“commit-name”</i> - save local changes add signature</li> -->
+          <li><b>git checkout</b> <i>branch-name</i> - go to ‘branch-name’ or saved commit</li>
+          <li><b>git checkout -b</b> <i>branch-name</i> - make and go to local ‘branch-name’</li>
           <li><b>git push</b> - push changes for current brunch to GitHub</li>
           <li><b>git push origin</b> <i>branch-name</i> - push changes on ‘branch-name’ to GitHub</li>
           <li><b>git push origin --delete</b> <i>branch-name</i> - delete ‘branch-name’ on GitHub</li>
-          <!-- <li><b>git push --set upstream origin</b> <i>branch-name</i> - push ‘branch-name’ and set upstream</li> -->
           <li><b>git push -u origin</b> <i>branch-name</i> - make and push ‘branch-name’ and set upstream</li>
-          <li><b>git pull</b> - pull changes for current brunch from GitHub</li>
-          <li><b>git pull origin</b> <i>branch-name</i> - pull changes on ‘branch-name’ from GitHub</li>
-          <li><b>git fetch</b> - fetch all changes from GitHub</li>
-          <li><b>git branch</b> - show available local branches</li>
-          <li><b>git branch -r</b> - show available branches on GitHub</li>
-          <li><b>git branch -a</b> - show available local branches and on GitHub</li>
-          <li><b>git branch</b> <i>branch-name</i> - make local ‘branch-name’</li>
-          <li><b>git branch -d</b> <i>branch-name</i> - delete local ‘branch-name’</li>
-          <li><b>git checkout</b> <i>branch-name</i> - go to ‘branch-name’ or saved commit</li>
-          <li><b>git checkout -b</b> <i>branch-name</i> - make and go to local ‘branch-name’</li>
+          <!-- <li><b>git push --set upstream origin</b> <i>branch-name</i> - push ‘branch-name’ and set upstream</li> -->
+          <li><b>git fetch</b> - fetch all changes from GitHub in refs/remotes/</li>
+          <li><b>git merge</b> - merge fetched changes in all branches</li>
           <li><b>git merge</b> <i>branch-name</i> - merge ‘branch-name’ in current brunch</li>
           <li><b>git merge --abort</b> - cancel merge brunches</li>
-          <li><b>git remote -v</b> - check connections between local files and GitHub</li>
-          <li><b>git remote set-url origin</b> <i>https://link</i> - set connections</li>
+          <li><b>git pull</b> - pull changes for current brunch from GitHub</li>
+          <li><b>git pull origin</b> <i>branch-name</i> - pull changes on ‘branch-name’ from GitHub</li>
+
+          <li><b>git log</b> - shows commits history (q - exit)</li>
+          <li><b>git diff</b> - shows changes from last commit (q - exit)</li>
           <li><b>git stash</b> - save local changes in temp boofer</li>
           <li><b>git stash apply</b> - pull local changes from temp boofer</li>
-          <li><b>git diff</b> - shows changes from last commit (q - exit)</li>
-          <li><b>git log</b> - shows commits history (q - exit)</li>
         </ul>
       </div>
     </div>
