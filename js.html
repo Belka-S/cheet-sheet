@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML-CSS</title>
+
+
+  <link rel="stylesheet" href="./css/modern-normalize.min.css">
+  <link rel="stylesheet" href="./css/main.min.css">
+</head>
+
+<body class="container">
+  <header class="header">
+    <div class="wrap">
+      <div class="goit">
+        <h2 id="goit">GoIT Cheet Sheet</h2>
+        <ul>
+          <li><a href="#var-types">Variables and Types (Lesson 1)</a></li>
+          <li><a href="#branches-cycles">Branches and Cycles (Lesson 2)</a></li>
+          <li><a href="#arrays">Arrays (Lesson 3)</a></li>
+          <li><a href="#functions">Functions (Lesson 4)</a></li>
+          <li><a href="#objects">Objects (Lesson 5)</a></li>
+          <li><a href="#destructuring">Destructuring and spread/rest (Lesson 6)</a></li>
+          <li><a href="#">Callbacks and Arrow Functions (Lesson 7)</a></li>
+          <li><a href="#">Iterating Array Methods (Lesson 8)</a></li>
+          <li><a href="#">The keyword this (Lesson 9)</a></li>
+          <li><a href="#">Prototypes and Classes (Lesson 10)</a></li>
+          <li><a href="#">Destructuring and spread/rest (Lesson 11)</a></li>
+          <li><a href="#">Callbacks and Arrow Functions (Lesson 12)</a></li>
+          <li><a href="#">Event Delegation (Lesson 13)</a></li>
+          <li><a href="#">Throttle/Debounce and Lazyload (Lesson 14)</a></li>
+          <li><a href="#">Code Modularity (Lesson 15)</a></li>
+          <li><a href="#">Web Storage (Lesson 16)</a></li>
+          <li><a href="#">Timers and Time (Lesson 17)</a></li>
+          <li><a href="#">Promises (Lesson 18)</a></li>
+          <li><a href="#">HTTP Requests (Lesson 19)</a></li>
+          <li><a href="#">Pagination (Lesson 20)</a></li>
+          <li><a href="#">CRUD (Lesson 21)</a></li>
+          <li><a href="#">Syntax async/await (Lesson 22)</a></li>
+        </ul>
+      </div>
+      <div class="terminal">
+        <!-- <h3>Terminal Cheet Sheet</h3> -->
+        <ul>
+          <li><b>cd</b> <i>directory-name</i> - change directory</li>
+          <li><b>git clone</b> <i>https://link</i> - clone repository from GitHub</li>
+          <li><b>git remote -v</b> - check connections between local files and GitHub</li>
+          <li><b>git remote set-url origin</b> <i>https://link</i> - set connections</li>
+          <li><b>git add .</b> - save local changes in all files</li>
+          <li><b>git commit -m</b> <i>“commit-name”</i> - add signature to changes</li>
+          <!-- <li><b>git commit -am</b> <i>“commit-name”</i> - save local changes add signature</li> -->
+          <li><b>git status</b> - track files</li>
+          <li><b>git checkout</b> <i>branch-name</i> - go to ‘branch-name’ or saved commit</li>
+          <li><b>git checkout -b</b> <i>branch-name</i> - make and go to local ‘branch-name’</li>
+          <li><b>git push</b> - push changes for current brunch to GitHub</li>
+          <li><b>git push -u origin</b> <i>branch-name</i> - make and push ‘branch-name’ and set upstream</li>
+          <li><b>git push origin</b> <i>branch-name</i> - push changes on ‘branch-name’ to GitHub</li>
+          <li><b>git push origin --delete</b> <i>branch-name</i> - delete ‘branch-name’ on GitHub</li>
+
+          <!-- <li><b>git push --set upstream origin</b> <i>branch-name</i> - push ‘branch-name’ and set upstream</li> -->
+          <li><b>git fetch</b> - fetch all changes from GitHub in refs/remotes/</li>
+          <li><b>git merge</b> - merge fetched changes in all branches</li>
+          <li><b>git merge</b> <i>branch-name</i> - merge ‘branch-name’ in current brunch</li>
+          <li><b>git merge --abort</b> - cancel merge brunches</li>
+          <li><b>git pull</b> - pull changes for current brunch from GitHub</li>
+          <li><b>git pull origin</b> <i>branch-name</i> - pull changes on ‘branch-name’ from GitHub</li>
+
+          <li><b>git log</b> - shows commits history (q - exit)</li>
+          <li><b>git diff</b> - shows changes from last commit (q - exit)</li>
+          <li><b>git stash</b> - save local changes in temp boofer</li>
+          <li><b>git stash apply</b> - pull local changes from temp boofer</li>
+        </ul>
+      </div>
+    </div>
+    <h1><a href="./index.html">HTML - structure and semantics, CSS - style and position,</a> JS - functionality.</h1>
+  </header>
+  <main>
+    <section class="var-types">
+      <a href="#goit">
+        <h2 id="var-types">Variables and Types (Lesson 1)</h2>
+      </a>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">JavaScript</a></h3>
+      <p>Today, using JavaScript you can create:</p>
+      <ul>
+        <li>web applications using frameworks such as <b>React</b>, <b>Vue</b>, <b>Angular</b> and others;</li>
+        <li>back-end applications using <b>Node.js</b>;</li>
+        <li>mobile applications with <b>React Native</b> or <b>Ionic</b>;</li>
+        <li>desktop applications using <b>Electron</b>;</li>
+        <li>microcontrollers with <b>Johnny-Five</b> and <b>Espruino</b>.</li>
+      </ul>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Adding Script</a></h3>
+      <p>To add a script to a web page, HTML files use the script tag. In its src attribute you should include a link to
+        an external JavaScript file. The script should be added before the &#60body> closing tag, after all content.</p>
+      <span><b>&#60script</b> src="./js/script.js" <i>type="module"</i><b>>&#60/script></b></span>
+      <p>In order to run your script in strict mode, it is enough to enter the following directive at the beginning of
+        the js-file. Another way to run script in strict mode to use attribute <b>type="module"</b>. Always write your
+        code in strict mode.</p>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Syntax Basics</a></h3>
+      <ul>
+        <li><b>Statement</b> is a related set of words and symbols from the syntax of a language that combines to
+          express a common idea, in order to give an instruction to a PC.</li>
+        <li>
+          <base>Expression</base> is a reference to a variable or value, or to a set of variables and values in
+          combination with operators. The statement contains expressions.
+        </li>
+        <li><b>Interface</b> is a set of <b><i>properties</i></b> and <b><i>methods</i></b> of an entity available for
+          use in the source code.
+          <ul>
+            <li>data has <b>properties</b>, for example, a string has a length. The syntax for accessing a property is
+              very simple: use a dot - <b>entity.property_name</b>.</li>
+            <li>data has its own predefined methods, this is an action call. The syntax for calling a method is similar,
+              but parentheses are added at the end - <b>entity.method_name()</b>.</li>
+          </ul>
+        </li>
+      </ul>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Variables</a></h3>
+      <p>Variables are used to store data and consist of an identifier (name) and a memory space for storing their
+        values. A variable declaration begins with the keyword <b>let</b> or <b>const</b>:</p>
+      <ul>
+        <li>use <b>const</b> by default, as most variables should be declared this way.</li>
+        <li>use <b>let</b> if you need to assign a different value to your variable during script execution.</li>
+      </ul>
+      <p><b>Undefined</b> is a variable that has been declared with the keyword let, but has not been initialized with a
+        value.<br><b>Undeclared</b> or not defined is a variable that has not been declared in the available scope.</p>
+      <p><b>Variable scope</b> is the availability of variables in a certain part of code. Any construct using curly
+        braces <b>{}</b> (conditions, loops, functions, etc.) creates a new local scope, and variables declared in this
+        scope using <b>let</b> or <b>const</b> are not available outside this block.</p>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Primitive types</a></h3>
+      <p>In JavaScript, a variable is not associated with any data type; its value has a type. That is, a variable can
+        store values of various types. <b>typeof</b> operator is used to get the variable's value type. It returns in
+        place of its call the value type of the variable specified after it.</p>
+      <ul>
+        <li><b>number</b> - integers and floating-point numbers.</li>
+        <li><b>string</b> - indexed set of zero or more characters, enclosed in single or double quotes;</li>
+        <li><b>boolean</b> - logical data type, true/false flags;</li>
+        <li><b>null</b> - special value that essentially means nothing, is used in situations where emptiness must be
+          explicitly indicated;</li>
+        <li><b>undefined</b> - when a variable is declared but not initialized, its value is undefined.</li>
+      </ul>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">User Input</a></h3>
+      <ul>
+        <li>data <i>output</i> methods are <b>console.log()</b> and <b>alert()</b>, the <i>alert()</i> method displays a
+          modal
+          window, with a text corresponding to the value of the variable (or literal) in parentheses</li>
+        <li>data <i>get from the user</i> methods are <b>prompt()</b> and <b>confirm()</b>, as a result of their
+          execution, they return what was entered by the user, it can be written to a variable for further use
+          (<i>prompt</i> always returns a string).</li>
+      </ul>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Basic Operators</a></h3>
+      <ul>
+        <li><b>Mathematical</b> operators <b>+ - * / %</b> are operators, whereas their objects are operands;</li>
+        <li><b>Comparison</b> operators <b>></b> and <b>&#60</b> (greater than/less than),<b>>=</b> and <b>&#60=</b>
+          (greater/less than or equal), <b>==</b> and <b>=</b>(equal/not equal), <b>===</b> and <b>!==</b> (strict
+          equality/inequality);
+        </li>
+        <li><b>Equality</b> operators - the "non-strict" equality operators <b>==</b> and <b>!=</b> convert types of
+          compared values to numbers.</li>
+      </ul>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Numbers</a></h3>
+      <ul>
+        <li><b>Number()</b> function - most operations and functions convert a value to a number automatically, use this
+          function to do
+          this explicitly;</li>
+        <li><b>Number.parseInt()</b> method - parses an integer from the string;</li>
+        <li><b>Number.parseFloat()</b> method - parses a fractional number from the string;</li>
+        <li><b>Number.isNaN()</b> method - checks if the entered value is NaN or not;</li>
+        <li><b>toFixed()</b> method - to add and round the result to a certain decimal place;</li>
+        <li><b>Math.floor()</b> method - returns the smallest integer less than or equal to the specified one;</li>
+        <li><b>Math.ceil()</b> method - returns the largest integer greater than or equal to the specified number;</li>
+        <li><b>Math.round()</b> method - returns the value of a number rounded to the nearest integer;</li>
+        <li><b>Math.max()</b> method - returns the largest number from a set;</li>
+        <li><b>Math.min()</b> method - returns the smallest number from a set;</li>
+        <li><b>Math.pow()</b> method - exponentiation;</li>
+        <li><b>Math.random()</b> method - returns a pseudo-random number in the range (0, 1).</li>
+      </ul>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Strings</a></h3>
+      <p>If you apply the <b>+</b> operator to a string and any other data type, the result of this addition is a
+        string. This operation is called <b>concatenation</b>, or string addition. Template strings are an alternative
+        to concatenation with more convenient syntax, they may contain placeholders with the dollar sign and curly
+        braces - <b>${expression}</b></p>
+      <ul>
+        <li><b>length</b> property - to get value of a string;</li>
+        <li><b>toLowerCase()</b> method - return a new string in the lower case without modifying the original string;
+        </li>
+        <li><b>toUpperCase()</b> method - return a new string in the upper case without modifying the original
+          string;</li>
+        <li><b>indexOf()</b> method - returns the position (index) of the first substring match, or <b>-1</b> if nothing
+          is found;</li>
+        <li><b>includes()</b> method - checks if a substring is included in the string, returns true/false;</li>
+        <li><b>endsWith()</b> method - determines if a string ends with the characters (substring) specified in
+          parentheses, returns true/false</li>
+        <li><b>replace()</b> method - return a new string in which the first substring matches have been replaced with
+          the specified value;</li>
+        <li><b>replaceAll()</b> method - return a new string in which all substring matches have been replaced with the
+          specified value.</li>
+      </ul>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Logical Operators</a></h3>
+      <p>In logical operations, the types of operands are converted/cast to <i>true</i> or <i>false</i>. <b>Truthy</b>
+        and <b>Falsy</b> are the terms used for those values that are converted to true or false in a logical operation,
+        although they were not originally booleans. Values that are converted to false in logical conversion
+        <b>0, NaN, null, undefined, empty string, false</b>.
+      </p>
+      <ul>
+        <li>Logical AND <b>&&</b> - result will be false, since at least one of the operands is converted to false;</li>
+        <li>Logical OR <b>||</b> - result will be true, since at least one of the operands is converted to true;</li>
+        <li>Logical NOT <b>!</b> - replaces value with the opposite.</li>
+      </ul>
+    </section>
+    <section class="branches-cycles">
+      <a href="#goit">
+        <h2 id="branches-cycles">Branches and Cycles (Lesson 2)</h2>
+        <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+            rel="noopener noreferrer nofollow">Branching</a></h3>
+        <p>Branches are used to execute particular code depending on the condition. The principle is simple: the
+          condition result is converted to a <i>boolean</i>, <i>true</i> or <i>false</i>, after which the program
+          executes this or that branch.</p>
+        <ul>
+          <li><b>if (</b><i>condition</i><b>) {</b><i>//if body</i></i><b>}</b> statement - if the condition is
+            converted to true, the code in
+            curly braces of the if body is then executed;</li>
+          <li><b>if (</b><i>condition</i><b>) {</b><i>//if body</i><b>} else {</b><i>//else body</i><b>}</b> statement -
+            <i>if</i> syntax is extended, if the condition is converted to false, the code in curly braces after the
+            <i>else</i> statement will be executed;
+          </li>
+          <li><b>else if</b> statement - enables you to add after else another if statement with a condition.</li>
+        </ul>
+        <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+            rel="noopener noreferrer nofollow">Ternary Operator</a></h3>
+        <p><i>condition</i> <b>?</b> <i>expression_if_true</i> <b>:</b> <i>expression_if_false</i> - the ternary
+          operator is used as a more syntactically concise replacement for the <b>if</b> ... <b>else</b> statement</p>
+        <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+            rel="noopener noreferrer nofollow">Switch Statement</a></h3>
+        <p>The scope of <b>switch</b> is limited to tasks with one common question (what to compare) and many answer
+          options (what to compare with). For comparison, the strict equality operator <b>===</b> is used.</p>
+        <span>
+          <b>switch (</b>value<b>) {</b><br>
+          <b>case</b> value:<br>
+          statements;<br>
+          <b>break</b>;<br>
+          <br>
+          <b>case</b> value:<br>
+          statements;<br>
+          <b>break</b>;<br>
+          <br>
+          <b>default</b>:<br>
+          statements;<br>
+          <b>}</b>
+        </span>
+        <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+            rel="noopener noreferrer nofollow">Loops</a></h3>
+        <ul>
+          <li><b>while (</b><i>condition</i><b>) {</b><i>//statement</i><b>}</b> - pre-test loop is a loop that is
+            executed as long as a condition specified before its beginning stays true;</li>
+          <li><b>do {</b><i>//statement</i><b>} while (</b><i>condition</i> <b>)</b> - post-test loop is a loop in which
+            the condition is tested after executing the loop body;</li>
+          <li><b>for (</b><i>let i = 0; i < max; i +=n</i><b>) {</b><i>//statements</i><b>}</b>- count-controlled loop
+                in which a variable changes its value from a set initial value to an end value with a step, and for each
+                value of this variable the loop body is executed once.</li>
+          <ul>
+            <li><i><b>break</b></i> operator - completely terminates the execution of the loop and transfers control to
+              the string after its body;</li>
+            <li><i><b>continue</b></i> operator - does not interrupt the entire loop, but only the current iteration.
+            </li>
+            <span>
+              const number = 10;<br>
+              <b>for (</b>let i = 0; i < number; i +=1<b>) {</b><br>
+                <b>if (</b>i % 2 === 0<b>) {</b><br>
+                <i><b>break</b> / <b>continue</b></i>;<br>
+                <b>} }</b>
+            </span>
+          </ul>
+        </ul>
+    </section>
+    <section class="arrays">
+      <a href=" #goit">
+        <h2 id="arrays">Arrays (Lesson 3)</h2>
+      </a>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Array</a></h3>
+      <p>Is a data structure for storing and manipulating collections of indexed values.</p>
+      <ul>
+        <li><b>const</b> <i>arrayName</i> = <b>[</b><i>element1, element2, element3</i><b>]</b> - declared with the
+          opening and closing square brackets <b>[]</b>, array elements are separated by a comma;</li>
+        <li><b>arrayName[</b><i>index</i><b>]</b> - to access the values of array elements;</li>
+        <li><b>arrayName[</b><i>index</i><b>]</b> = <i>newElement</i> - can be changed if you access them by index and
+          assign a
+          different value;</li>
+        <li><i>arrayName</i><b>.length</b> property - length of an array, that is, the number of its elements;</li>
+      </ul>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Array Iteration</a></h3>
+      <ul>
+        <li><b>for (</b><i>let i = 0; i < i arrayName.length; i +=1</i><b>)</b>
+              <b>{</b>console.log(<i>arrayName<b>[i]</b></i>);<b>}</b> - to iterate over an array element by element;
+        </li>
+        <li><b>for (</b><i>const varName</i> <b>of</b> <i>arrayName/stringName</i><b>)
+            {</b>console.log(<i>varName</i>);<b>}</b> - iterates over iterable (enumerable) objects such as arrays and
+          strings;
+          <ul>
+            <li><b>for (</b><i>const varName</i> <b>of</b> <i>arrayName/stringName</i><b>)
+                {if (</b><i>varName === searchName</i><b>) {</b>console.log(<i>varName</i>); <b>break</b>;<b>} }</b> -
+              after indentifying of <i>searchName</i>, the loop is interrupted, as there is no point in looking further
+            </li>
+            <li><b>for (</b><i>let i = 0; i < i arrayName.length; i +=1</i><b>) {if (</b><i>arrayName<b>[i]</b>
+                    < threshold</i><b>)</b>; <b>continue</b>;<b>}</b> - for numbers less than the threshold value,
+                      continue is triggered and control is passed to the next iteration.</li>
+          </ul>
+        </li>
+      </ul>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Value and Reference</a></h3>
+      <ul>
+        <li><b>Primitives</b> are <i>strings</i>, <i>numbers</i>, <i>booleans</i>, <i>null</i> and <i>undefined</i>;
+          when assigning, they are copied entirely, by <b>value</b>.</li>
+        <li><b>Complex</b> types are variable to which an array or object is assigned does not store the value
+          itself, but the address of its space in memory, they are copied by <b>reference</b>.</li>
+      </ul>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Array Methods</a></h3>
+      <ul>
+        <li><b>split(</b><i>delimiter</i><b>)</b> method - converts a string to an array by splitting it with
+          <i>delimiter</i>;
+        </li>
+        <li><b>join(</b><i>delimiter</i><b>)</b> method - joins the elements of an array into a string by joining it
+          with <i>delimiter</i>;
+        </li>
+        <li><b>indexOf(</b><i>value</i><b>)</b> method - returns the first index at which the element with <i>value</i>
+          is found in the array;</li>
+        <li><b>includes(</b><i>value</i><b>)</b> method - checks if there is an element with <i>value</i> in the array,
+          and it returns <i>true</i> or <i>false</i>;</li>
+        <li><b>push(</b><i>value</i><b>)</b> method - adds one or more elements to the end of the array, without the
+          need to specify the indices of the added elements;</li>
+        <li><b>pop(</b><i>value</i><b>)</b> method - removes the last element from the end of the array and returns the
+          removed element, if the array is empty, it returns <i>undefined</i>;</li>
+        <li><b>slice(</b><i>beginIndex, endIndex</i><b>)</b> method - returns a new array which is a partial copy from
+          <i>beginIndex</i> to, but not including, <i>endIndex</i>;
+        </li>
+        <li><b>splice(</b><i>position, num</i><b>)</b> method - <b>removal</b>, modifies the original array and returns
+          an array containing the removed elements, where <i>position</i> indicates the position (index) of the first
+          element to be removed and <i>num</i> indicates the number of elements to be removed; </li>
+        <li><b>splice(</b><i>position, 0, new_element_1, new_element_2, ...</i><b>)</b> method - <b>addition</b>,
+          <i>position</i> argument specifies the starting position in the array where new elements will be inserted,
+          second argument is <i>0</i>, it instructs the method not to remove elements where new ones are added;
+        </li>
+        <li><b>splice(</b><i>position, num, new_element_1, new_element_2, ...</i><b>)</b> method - <b>replacement</b>,
+          <i>position</i> indicates the position (index) of the first element to be removed <i>num</i> determines the
+          number of elements to be removed;
+        </li>
+        <li><b>concat(</b><i>arrayName</i><b>)</b> method - consolidates two or more arrays into one.</li>
+      </ul>
+    </section>
+    <section class="functions">
+      <a href=" #goit">
+        <h2 id="functions">Functions (Lesson 4)</h2>
+      </a>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Function declaration</a></h3>
+      <p>Function is a subroutine, an independent piece of code designed to repeatedly execute a specific task with
+        different initial values. Function declaration begins with the keyword <b>function</b>, followed by its name,
+        i.e. a verb answering the question "What to do?", and a pair of parentheses <b>()</b>, the function body is
+        enclosed in curly braces <b>{}</b> and contains instructions that must be executed. In parentheses, after the
+        function name, there are <b>parameters</b>, an enumeration of data that the function expects when called. When
+        calling a function, in parentheses you can pass <b>arguments</b>. If you need to declare a function with
+        parameters other than <i>undefined</i>, it is enough to specify the default value in the function signature.</p>
+      <span>
+        <i>
+          <b>function</b> count<b>(</b>countFrom = 0, countTo = 10, step = 1<b>) {</b><br>
+          console.log(`countFrom = ${countFrom}, countTo = ${countTo}, step = ${step}`);<br>
+          for (let i = countFrom; i <= countTo; i +=step) { console.log(i); } <b>}</b>
+        </i>
+      </span>
+
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Usage Features</a></h3>
+      <ul>
+        <li><b>return</b> operator - pass a value from the function body to external code and exit the function:
+          <i>function multiply(x, y, z) {</i><b>return</b> <i>x * y * z;}</i>;
+        </li>
+        <li><b>arguments</b> can be accessed using the special variable <i>arguments</i>, which is only available inside
+          the function and stores all arguments as a pseudo-array:
+          <i><b>function</b> multiply() {let total = 1; for (const argument of</i> <b>arguments</b>)<i> total *=
+            argument;</i> <i>return total;}</i>
+        </li>
+        <li><b>Array.from()</b> method - create an array from a pseudo-array: <i><b>function</b> createArray() {const
+            newArray =</i> <b>Array.from(</b>arguments<b>)</b><i>; return newArray}</i>
+        </li>
+        <li><b>return early pattern</b> - is a way to return early from a function using the return operator:<br>
+          <i><b>function</b> withdraw(amount, balance) {<br>
+            <b>if</b> (amount === 0) {<br>
+            console.log("Enter an amount greater than zero");<br>
+            <b>return</b>;}<br>
+            <b>if</b> (amount > balance) {<br>
+            console.log("Insufficient account balance");<br>
+            <b>return</b>;}<br>
+            console.log("Withdrawal has been successful");}</i>
+        </li>
+        <li><b>function expression</b> <i>const fnName = <b>function</b> (x, y, z) {\\Function body}</i> - cannot be
+          called before its creation, only after, as it is literally a const variable declaration;</li>
+      </ul>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Scope</a></h3>
+      <p><b>Scope</b> is a mechanism that determines the availability of variables in your code. <b>Scope chain</b>:
+        scopes form a hierarchy so that child scopes can access variables from parent scopes, but not vice versa. </p>
+      <ul>
+        <li>Variables declared at the very top level, that is, outside of any constructs like <i>if</i>, <i>while</i>,
+          <i>for</i> and <i>functions</i>, are in the <b>global scope</b>, and they are available everywhere after they
+          are declared.
+        </li>
+        <li>Variables declared inside <i>if</i> and <i>for</i> statements, <i>functions</i> and other blocks of code
+          enclosed in curly braces <i>{}</i> are in the <b>block scope</b>, and they are available only within this
+          block of code or those nested inside it. </li>
+        <li><b>Scope chain look-up</b> - the interpreter first tries to find a variable in the scope in which such
+          variable was accessed. If there is no such variable in the local scope, then the interpreter goes out, one
+          level per attempt, until it finds the necessary value or reaches the topmost scope (global) and realizes that
+          no variable with such an identifier can be found, since it does not exist</li>
+      </ul>
+      <h3><a href="https://www.edu.goit.global/learn/6420780/2294/2295/textbook" target="_blank"
+          rel="noopener noreferrer nofollow">Call Stack</a></h3>
+      <p><b>Call stack</b> is a mechanism for keeping track of where the interpreter is located in the code that calls
+        multiple functions. You can see which of the functions is currently being executed, which functions are called
+        from within the function being executed, which will be called next, etc. <i><b>Stack</b></i> is a data structure
+        using the <b>LIFO</b> (Last-In-First-Out) principle. The last thing that is added to the stack will be removed
+        from it first, which means that you can add or remove elements only from the top of the stack.</p>
+    </section>
+    <section class="objects">
+      <a href=" #goit">
+        <h2 id="objects">Objects (Lesson 5)</h2>
+      </a>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <section class="destructuring">
+      <a href=" #goit">
+        <h2 id="destructuring">Destructuring and spread/rest (Lesson 6)</h2>
+      </a>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="">
+      <a href=" #goit">
+        <h2 id=""></h2>
+      </a>
+    </section>
+  </main>
+
+  <footer></footer>
+  <script src="./js/script.js" type="module"></script>
+</body>
+
+
+</html>
