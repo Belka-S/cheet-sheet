@@ -270,14 +270,22 @@
 //     console.log('Дата у майбутньому');
 // }
 
-// ******************** Example 2-10 - Цикл for ********************
+// ******************** Example 2-10 - Цикл for, while ********************
 // Напиши цикл for, який виводить у консоль браузера числа за зростанням
 // від `min` до `max`, але тільки якщо число кратне `5`.
 // -----------------------------------------------------------------------------
-// const max = 89;
 // const min = 13;
+// const max = 89;
 // for (let i = min; i <= max; i += 1) {
 //   if (i % 5 === 0) console.log(i);
+// }
+// -----------------------------------------------------------------------------
+// const min = 13;
+// const max = 89;
+// let i = min;
+// while (i <= max) {
+//   if (i % 5 === 0) console.log(i);
+//   i += 1;
 // }
 
 // ******************** Example 2-11 - Введення користувача та розгалуження ********************
@@ -309,24 +317,6 @@
 // console.log(!false);
 // console.log(!'');
 // console.log(!0);
-
-// ******************** Loops ********************
-// while (condition) {//statement} - pre-test loop is a loop that is executed
-// as long as a condition specified before its beginning stays true;
-
-// do {//statement} while (condition ) - post-test loop is a loop in which
-// the condition is tested after executing the loop body;
-// -----------------------------------------------------------------------------
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 // -------------------- Arrays (Lesson 3) --------------------
 // -------------------- Functions (Lesson 4) --------------------
