@@ -144,7 +144,7 @@
       <h3>User Input</h3>
       <ul>
         <li>data <i>output</i> methods are <b>console.log()</b> and <b>alert()</b>, the <i>alert()</i> method displays a
-          modal window, with a text corresponding to the value of the variable (or literal) in parentheses</li>
+          modal window, with a text corresponding to the value of the variable (or literal) in parentheses;</li>
         <li>data <i>get from the user</i> methods are <b>prompt()</b> and <b>confirm()</b>, as a result of their
           execution, they return what was entered by the user, it can be written to a variable for further use
           (<i>prompt</i> always returns a string).</li>
@@ -218,59 +218,60 @@
     <section class="branches-cycles">
       <a href="#goit">
         <h2 id="branches-cycles">Branches and Cycles (Lesson 2)</h2>
-        <h3>Branching</h3>
-        <p>Branches are used to execute particular code depending on the condition. The principle is simple: the
-          condition result is converted to a <i>boolean</i>, <i>true</i> or <i>false</i>, after which the program
-          executes this or that branch.</p>
+      </a>
+      <h3>Branching</h3>
+      <p>Branches are used to execute particular code depending on the condition. The principle is simple: the
+        condition result is converted to a <i>boolean</i>, <i>true</i> or <i>false</i>, after which the program
+        executes this or that branch.</p>
+      <ul>
+        <li><b>if (</b><i>condition</i><b>) {</b><i>//if body</i></i><b>}</b> statement - if the condition is
+          converted to true, the code in
+          curly braces of the if body is then executed;</li>
+        <li><b>if (</b><i>condition</i><b>) {</b><i>//if body</i><b>} else {</b><i>//else body</i><b>}</b> statement -
+          <i>if</i> syntax is extended, if the condition is converted to false, the code in curly braces after the
+          <i>else</i> statement will be executed;
+        </li>
+        <li><b>else if</b> statement - enables you to add after else another if statement with a condition.</li>
+      </ul>
+      <h3>Ternary Operator</h3>
+      <p><i>condition</i> <b>?</b> <i>expression_if_true</i> <b>:</b> <i>expression_if_false</i> - the ternary
+        operator is used as a more syntactically concise replacement for the <b>if</b> ... <b>else</b> statement</p>
+      <h3>Switch Statement</h3>
+      <p>The scope of <b>switch</b> is limited to tasks with one common question (what to compare) and many answer
+        options (what to compare with). For comparison, the strict equality operator <b>===</b> is used.</p>
+      <span>
+        <b>switch (</b>value<b>) {</b><br>
+        <b>case</b> value: statements;<br>
+        <b>break</b>;<br>
+        <b>case</b> value: statements;<br>
+        <b>break</b>;<br>
+        <b>default</b>:<br>
+        statements;<br>
+        <b>}</b>
+      </span>
+      <h3>Loops</h3>
+      <ul>
+        <li><b>while (</b><i>condition</i><b>) {</b><i>//statement</i><b>}</b> - pre-test loop is a loop that is
+          executed as long as a condition specified before its beginning stays true;</li>
+        <li><b>do {</b><i>//statement</i><b>} while (</b><i>condition</i> <b>)</b> - post-test loop is a loop in which
+          the condition is tested after executing the loop body;</li>
+        <li><b>for (</b><i>let i = 0; i < max; i +=n</i><b>) {</b><i>//statements</i><b>}</b> - count-controlled loop
+              in which a variable changes its value from a set initial value to an end value with a step, and for each
+              value of this variable the loop body is executed once.</li>
         <ul>
-          <li><b>if (</b><i>condition</i><b>) {</b><i>//if body</i></i><b>}</b> statement - if the condition is
-            converted to true, the code in
-            curly braces of the if body is then executed;</li>
-          <li><b>if (</b><i>condition</i><b>) {</b><i>//if body</i><b>} else {</b><i>//else body</i><b>}</b> statement -
-            <i>if</i> syntax is extended, if the condition is converted to false, the code in curly braces after the
-            <i>else</i> statement will be executed;
+          <li><i><b>break</b></i> operator - completely terminates the execution of the loop and transfers control to
+            the string after its body;</li>
+          <li><i><b>continue</b></i> operator - does not interrupt the entire loop, but only the current iteration.
           </li>
-          <li><b>else if</b> statement - enables you to add after else another if statement with a condition.</li>
+          <span>
+            const number = 10;<br>
+            <b>for (</b>let i = 0; i < number; i +=1<b>) {</b><br>
+              <b>if (</b>i % 2 === 0<b>) {</b><br>
+              <i><b>break</b> / <b>continue</b></i>;<br>
+              <b>} }</b>
+          </span>
         </ul>
-        <h3>Ternary Operator</h3>
-        <p><i>condition</i> <b>?</b> <i>expression_if_true</i> <b>:</b> <i>expression_if_false</i> - the ternary
-          operator is used as a more syntactically concise replacement for the <b>if</b> ... <b>else</b> statement</p>
-        <h3>Switch Statement</h3>
-        <p>The scope of <b>switch</b> is limited to tasks with one common question (what to compare) and many answer
-          options (what to compare with). For comparison, the strict equality operator <b>===</b> is used.</p>
-        <span>
-          <b>switch (</b>value<b>) {</b><br>
-          <b>case</b> value: statements;<br>
-          <b>break</b>;<br>
-          <b>case</b> value: statements;<br>
-          <b>break</b>;<br>
-          <b>default</b>:<br>
-          statements;<br>
-          <b>}</b>
-        </span>
-        <h3>Loops</h3>
-        <ul>
-          <li><b>while (</b><i>condition</i><b>) {</b><i>//statement</i><b>}</b> - pre-test loop is a loop that is
-            executed as long as a condition specified before its beginning stays true;</li>
-          <li><b>do {</b><i>//statement</i><b>} while (</b><i>condition</i> <b>)</b> - post-test loop is a loop in which
-            the condition is tested after executing the loop body;</li>
-          <li><b>for (</b><i>let i = 0; i < max; i +=n</i><b>) {</b><i>//statements</i><b>}</b> - count-controlled loop
-                in which a variable changes its value from a set initial value to an end value with a step, and for each
-                value of this variable the loop body is executed once.</li>
-          <ul>
-            <li><i><b>break</b></i> operator - completely terminates the execution of the loop and transfers control to
-              the string after its body;</li>
-            <li><i><b>continue</b></i> operator - does not interrupt the entire loop, but only the current iteration.
-            </li>
-            <span>
-              const number = 10;<br>
-              <b>for (</b>let i = 0; i < number; i +=1<b>) {</b><br>
-                <b>if (</b>i % 2 === 0<b>) {</b><br>
-                <i><b>break</b> / <b>continue</b></i>;<br>
-                <b>} }</b>
-            </span>
-          </ul>
-        </ul>
+      </ul>
     </section>
     <section class="arrays">
       <a href=" #goit">
@@ -283,13 +284,15 @@
           opening and closing square brackets <b>[]</b>, array elements are separated by a comma;</li>
         <li><b>arrayName[</b><i>index</i><b>]</b> - to access the values of array elements;</li>
         <li><b>arrayName[</b><i>index</i><b>]</b> = <i>newElement</i> - can be changed if you access them by index and
-          assign a
-          different value;</li>
+          assign a different value;</li>
         <li><i>arrayName</i><b>.length</b> property - length of an array, that is, the number of its elements;</li>
+        <li><b>console.table(</b>arrayName<b>)</b> - displays a table whith the indexes and values of the
+          <i>arrayName</i>
+        </li>
       </ul>
       <h3>Array Iteration</h3>
       <ul>
-        <li><b>for (</b><i>let i = 0; i < i arrayName.length; i +=1</i><b>)</b>
+        <li><b>for (</b><i>let i = 0; i < arrayName.length; i +=1</i><b>)</b>
               <b>{</b>console.log(<i>arrayName<b>[i]</b></i>);<b>}</b> - to iterate over an array element by element;
         </li>
         <li><b>for (</b><i>const varName</i> <b>of</b> <i>arrayName/stringName</i><b>)

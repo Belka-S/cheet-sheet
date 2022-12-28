@@ -227,10 +227,15 @@
 // ******************** Example 2-7 - Форматування посилання (тернарний оператор) ********************
 // Виконай рефакторинг коду задачі номер 4, використовуючи тернарний оператор.
 // -----------------------------------------------------------------------------
+// const age = 26;
+// const beverage = age >= 21 ? 'Beer' : 'Juice';
+// console.log(beverage); // "Beer"
+// -----------------------------------------------------------------------------
 // let link;
 // link = 'https://www.edu.goit.global/my-site/learn';
 // !link.endsWith('/') && link.includes('my-site') ? link += '/': link ='Не той сайт';
 // console.log(link);
+//
 
 // ******************** Example 2-8 - if...else та логічні оператори ********************
 // Напиши скрипт, що виводитиме в консоль рядок залежно від значення змінної `hours`.
@@ -319,6 +324,113 @@
 // console.log(!0);
 
 // -------------------- Arrays (Lesson 3) --------------------
+
+// ******************** Value and Reference ********************
+// const fruits = ['apple', 'banana', 'plum', 'kiwi', 'peach'];
+// const vitamins = ['apple', 'banana', 'plum', 'kiwi', 'peach'];
+// console.table(fruits);
+// const a = fruits;
+// const b = fruits;
+// console.log(a === b); //true
+// console.log(fruits === vitamins); //false
+
+// ******************** Array Iteration ********************
+
+// const fruits = ['apple', 'banana', 'plum', 'kiwi', 'peach'];
+// for (let i = 0; i < fruits.length; i += 1) {
+//   console.log(i, fruits[i]);
+// }
+// for (const localVariable of fruits) {
+//   console.log(localVariable);
+// }
+// -----------------------------------------------------------------------------
+// const numbers = [1, 2, 5, 4, 7, 34, 12, 9, 15, 22, 31, 26, 23];
+// let total = 0;
+// for (const number of numbers) {
+//   if (number % 2 !== 0) {
+//     total += number;
+//   }
+// }
+// console.log(total);
+// -----------------------------------------------------------------------------
+// const numbers = [1, 2, 5, 4, 7, 34, 12, 9, 15, 22, 31, 26, 23];
+// let maxNumber = numbers[0];
+// for (const number of numbers) {
+//   if (number > maxNumber) {
+//     maxNumber = number;
+//   }
+// }
+// console.log(maxNumber);
+
+// ******************** Array Methods ********************
+
+// const passwords = ['123qwe', '321QWE', 'qweasd', '456ASD', 'ASDewq'];
+// const adminPass = 'qweasd';
+// for (const password of passwords) {
+//   if (password === adminPass) {
+//     console.log(`Success, admin is found! adminPass is '${password}'`);
+//     break;
+//   }
+//   console.log('Found NOTHING');
+// }
+// -----------------------------------------------------------------------------
+// const passwords = ['123qwe', '321QWE', 'qweasd', '456ASD', 'ASDewq'];
+// const adminPass = 'qweasd';
+// const message = passwords.includes(adminPass)
+//   ? `Success, admin is found! adminPass is '${adminPass}'`
+//   : 'Found NOTHING';
+// console.log(message);
+// -----------------------------------------------------------------------------
+// const fruits = ['apple', 'banana', 'plum', 'kiwi', 'peach'];
+// let string = '';
+// for (const fruit of fruits) {
+//   string += fruit + '---';
+// }
+// string = string.slice(0, string.length - 3);
+// console.log('method .slice: ', string);
+
+// const fruitsJoin = fruits.join('---');
+// console.log('method .join:  ', fruitsJoin);
+// -----------------------------------------------------------------------------
+// const DM = 'Depeche Mode';
+// const arrayDM = DM.split('');
+// let inverseDM = '';
+// for (const letter of arrayDM) {
+//   inverseDM +=
+//     letter === letter.toUpperCase()
+//       ? letter.toLowerCase()
+//       : letter.toUpperCase();
+// }
+// console.log(inverseDM);
+// -----------------------------------------------------------------------------
+// const string = 'How can I make a Chain of Calls?';
+// const chain = string.replaceAll('?', '').toLowerCase().split(' ').join('-');
+// console.log('chain: ', chain);
+// -----------------------------------------------------------------------------
+// const numbers1 = [1, 2, 5, 4, 7, 34, 12, 9];
+// const numbers2 = [15, 22, 31, 26, 23];
+// for (const number of numbers1.concat(numbers2)) {
+//   console.table(number);
+// }
+// -----------------------------------------------------------------------------
+// const wrong = ['d', 'i', 'p', 'i', 'ch', 'M', 'o', 'd', 'a', 'R'];
+// console.log('string DM: ', wrong.join(''));
+// let DM = '';
+// DM = wrong.splice(wrong.indexOf('M'), 0, ' '); // addition ' '
+// DM = wrong.splice(wrong.indexOf('R'), 1); //removal 'R'
+// DM = wrong.splice(wrong.indexOf('d'), 1, 'D'); // replacement first 'd'
+// DM = wrong.splice(wrong.indexOf('ch'), 1, 'c', 'h', 'e'); // replacement 'ch'
+// while (wrong.includes('i') || wrong.includes('a')) {
+//   DM = wrong.splice(wrong.indexOf('i'), 1, 'e');
+//   DM = wrong.splice(wrong.indexOf('a'), 1, 'e');
+// } // replacement all 'd', 'e'
+// console.log('string DM: ', wrong.join(''));
+
+//
+//
+//
+//
+
 // -------------------- Functions (Lesson 4) --------------------
 // -------------------- Objects (Lesson 5) --------------------
 // -------------------- Destructuring and spread/rest (Lesson 6) --------------------
