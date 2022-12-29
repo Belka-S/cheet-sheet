@@ -199,7 +199,9 @@
         <li><b>.replaceAll(</b>regexp|substr, newSubstr|function<b>)</b> method - return a new string in which all
           substring matches have been replaced with the specified value;</li>
         <li><b>.padStart(</b>targetLength [, padString]<b>)</b> method - pads the current string with another string
-          until the resulting string reaches the given length.</li>
+          until the resulting string reaches the given length;</li>
+        <li><b>.trim()</b> method - removes whitespace from both ends of a string and returns a new string, without
+          modifying the original string.</li>
       </ul>
       <h3>Logical Operators</h3>
       <p>In logical operations, the types of operands are converted/cast to <i>true</i> or <i>false</i>. <b>Truthy</b>
@@ -318,82 +320,94 @@
       </ul>
       <h3>Array Methods</h3>
       <ul>
-        <li><b>split(</b><i>delimiter</i><b>)</b> method - converts a string to an array by splitting it with
+        <li><b>.split(</b><i>delimiter</i><b>)</b> method - converts a string to an array by splitting it with
           <i>delimiter</i>;
         </li>
-        <li><b>join(</b><i>delimiter</i><b>)</b> method - joins the elements of an array into a string by joining it
+        <li><b>.join(</b><i>delimiter</i><b>)</b> method - joins the elements of an array into a string by joining it
           with <i>delimiter</i>;
         </li>
-        <li><b>indexOf(</b><i>value</i><b>)</b> method - returns the first index at which the element with <i>value</i>
+        <li><b>.indexOf(</b><i>value</i><b>)</b> method - returns the first index at which the element with <i>value</i>
           is found in the array;</li>
-        <li><b>includes(</b><i>value</i><b>)</b> method - checks if there is an element with <i>value</i> in the array,
+        <li><b>.includes(</b><i>value</i><b>)</b> method - checks if there is an element with <i>value</i> in the array,
           and it returns <i>true</i> or <i>false</i>;</li>
-        <li><b>push(</b><i>value</i><b>)</b> method - adds one or more elements to the end of the array, without the
+        <li><b>.push(</b><i>value1, value2, ...</i><b>)</b> method - adds one or more elements to the end of the array,
+          without the
           need to specify the indices of the added elements;</li>
-        <li><b>pop(</b><i>value</i><b>)</b> method - removes the last element from the end of the array and returns the
+        <li><b>.pop(</b><i>value</i><b>)</b> method - removes the last element from the end of the array and returns the
           removed element, if the array is empty, it returns <i>undefined</i>;</li>
-        <li><b>slice(</b><i>beginIndex, endIndex</i><b>)</b> method - returns a new array which is a partial copy from
+        <li><b>.unshift(</b><i>value1, value2, ...</i><b>)</b> method - adds one or more elements to the beginning of
+          the array, without the need to specify the indices of the added elements;</li>
+        <li><b>.shift(</b><i>value</i><b>)</b> method - removes the last element from the beginning of the array and
+          returns the removed element, if the array is empty, it returns <i>undefined</i>;</li>
+        <li><b>.slice(</b><i>beginIndex, endIndex</i><b>)</b> method - returns a new array which is a partial copy from
           <i>beginIndex</i> to, but not including, <i>endIndex</i>;
         </li>
-        <li><b>splice(</b><i>position, num</i><b>)</b> method - <b>removal</b>, modifies the original array and returns
+        <li><b>.splice(</b><i>position, num</i><b>)</b> method - <b>removal</b>, modifies the original array and returns
           an array containing the removed elements, where <i>position</i> indicates the position (index) of the first
           element to be removed and <i>num</i> indicates the number of elements to be removed; </li>
-        <li><b>splice(</b><i>position, 0, new_element_1, new_element_2, ...</i><b>)</b> method - <b>addition</b>,
+        <li><b>.splice(</b><i>position, 0, new_element_1, new_element_2, ...</i><b>)</b> method - <b>addition</b>,
           <i>position</i> argument specifies the starting position in the array where new elements will be inserted,
           second argument is <i>0</i>, it instructs the method not to remove elements where new ones are added;
         </li>
-        <li><b>splice(</b><i>position, num, new_element_1, new_element_2, ...</i><b>)</b> method - <b>replacement</b>,
+        <li><b>.splice(</b><i>position, num, new_element_1, new_element_2, ...</i><b>)</b> method - <b>replacement</b>,
           <i>position</i> indicates the position (index) of the first element to be removed <i>num</i> determines the
           number of elements to be removed;
         </li>
-        <li><b>concat(</b><i>arrayName</i><b>)</b> method - consolidates two or more arrays into one.</li>
+        <li><b>.concat(</b><i>arrayName</i><b>)</b> method - consolidates two or more arrays into one;</li>
+        <li><b>.sort([(a, b) => a - b)])</b> method - sorts the elements of an array;</li>
+        <li><b>.reverse()</b> method - reverses an array.</li>
       </ul>
     </section>
     <section class="functions">
       <a href=" #goit">
         <h2 id="functions">Functions (Lesson 4)</h2>
       </a>
-      <h3>Function declaration</h3>
-      <p>Function is a subroutine, an independent piece of code designed to repeatedly execute a specific task with
-        different initial values. Function declaration begins with the keyword <b>function</b>, followed by its name,
-        i.e. a verb answering the question "What to do?", and a pair of parentheses <b>()</b>, the function body is
-        enclosed in curly braces <b>{}</b> and contains instructions that must be executed. In parentheses, after the
-        function name, there are <b>parameters</b>, an enumeration of data that the function expects when called. When
-        calling a function, in parentheses you can pass <b>arguments</b>. If you need to declare a function with
-        parameters other than <i>undefined</i>, it is enough to specify the default value in the function signature.</p>
-      <span>
-        <i>
-          <b>function</b> count<b>(</b>countFrom = 0, countTo = 10, step = 1<b>) {</b><br>
-          console.log(`countFrom = ${countFrom}, countTo = ${countTo}, step = ${step}`);<br>
-          for (let i = countFrom; i <= countTo; i +=step) { console.log(i); } <b>}</b>
-        </i>
-      </span>
-
+      <h3>Function declaration, expression, calling</h3>
+      <p><b>Function</b> is a subroutine, an independent piece of code designed to repeatedly execute a specific task
+        with different initial values. <b><i>Function name</i></b> must be a verb answering the question "What to do?".
+        If you need to declare a function with <b><i>parameters</i></b> other than <i>undefined</i>, it is enough to
+        specify the default value.</p>
+      <ul>
+        <li>Function declaration <b>function</b> <i>functionName</i><b>(</b><i>parameters</i><b>) {</b><i>\\function
+            body</i><b>}</b> - can be called before its creation;</li>
+        <li>Function expression <b>const</b> <i>functionName</i> = <b>function(</b><i>parameters</i><b>)
+            {</b><i>\\function body</i><b>}</b> - cannot be called before its creation, only after, as it is literally a
+          const variable declaration;</li>
+        <li> Function calling <b><i>functionName</i></b><b>(</b><i>arguments</i><b>)</b> - in parentheses you can pass
+          <i><b>arguments</b></i>, i.e. values for the declared function <i><b>parameters</b></i>.
+        </li>
+      </ul>
       <h3>Usage Features</h3>
       <ul>
-        <li><b>return</b> operator - pass a value from the function body to external code and exit the function:
+        </li>
+        <li><b>arguments</b> can be accessed using the special variable, which is only available inside the function and
+          stores all arguments as a pseudo-array:<br>
+          <i>function multiply() {let total = 1; for (const</i> varName <i>of</i> <b>arguments</b>)<i>
+            total *= varName;</i> <i>return total;}</i>
+        </li>
+        <li><b>Array.from()</b> method creates an array from a pseudo-array:<br>
+          <i>function createArray() {const newArray =</i> <b>Array.from(</b>arguments<b>)</b><i>; return
+            newArray}</i>
+        </li>
+        <li>function <i>fnName</i><b>(<i>...argToArray</i>)</b> <i></i>{\\function body}</i> - another methon
+          to create an array from a pseudo-array:<br>
+          <i>function fnName<b>(...argToArray)</b> {There is access to Array <b>'argToArray'</b>
+            <i> that was made from <b>arguments</b>}
+            </i>
+        </li>
+        <li><b>return</b> operator passes a value from the function body to external code and exit the function:<br>
           <i>function multiply(x, y, z) {</i><b>return</b> <i>x * y * z;}</i>;
-        </li>
-        <li><b>arguments</b> can be accessed using the special variable <i>arguments</i>, which is only available inside
-          the function and stores all arguments as a pseudo-array:
-          <i><b>function</b> multiply() {let total = 1; for (const argument of</i> <b>arguments</b>)<i> total *=
-            argument;</i> <i>return total;}</i>
-        </li>
-        <li><b>Array.from()</b> method - create an array from a pseudo-array: <i><b>function</b> createArray() {const
-            newArray =</i> <b>Array.from(</b>arguments<b>)</b><i>; return newArray}</i>
-        </li>
-        <li><b>return early pattern</b> - is a way to return early from a function using the return operator:<br>
-          <i><b>function</b> withdraw(amount, balance) {<br>
-            <b>if</b> (amount === 0) {<br>
+        <li><b>return early pattern</b> is a way to return early from a function using the return operator:<br>
+          <i>function withdraw(amount, balance) {<br>
+            if(amount === 0) {<br>
             console.log("Enter an amount greater than zero");<br>
             <b>return</b>;}<br>
-            <b>if</b> (amount > balance) {<br>
+            if (amount > balance) {<br>
             console.log("Insufficient account balance");<br>
             <b>return</b>;}<br>
             console.log("Withdrawal has been successful");}</i>
         </li>
-        <li><b>function expression</b> <i>const fnName = <b>function</b> (x, y, z) {\\Function body}</i> - cannot be
-          called before its creation, only after, as it is literally a const variable declaration;</li>
+
       </ul>
       <h3>Scope</h3>
       <p><b>Scope</b> is a mechanism that determines the availability of variables in your code. <b>Scope chain</b>:
