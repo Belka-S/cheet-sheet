@@ -1,9 +1,36 @@
 // -------------------- Variables and Types (Lesson 1) --------------------
 
+// The six values ​​that are converted by Boolean() to `false`:
+// `0`, `NaN`, `null`, `undefined`, an empty string `""` or `''` and the value `false` itself.
+// Everything else is converted to`true`.
+// -----------------------------------------------------------------------------
+// console.log('Boolean(0): ', Boolean(0));  //false
+// console.log('Boolean(NaN): ', Boolean(NaN));  //false
+// console.log('Boolean(null): ', Boolean(null));  //false
+// console.log('Boolean(undefined): ', Boolean(undefined));  //false
+// console.log('Boolean(false): ', Boolean(false));  //false
+// console.log('Boolean(''): ', Boolean('')); // ?????????
+// -----------------------------------------------------------------------------
+// typeof null;
+// console.log('typeof null: ', typeof null);
+// console.log('typeof undefined: ', typeof undefined);
+// console.log('typeof NaN: ', typeof NaN);
+// console.log('typeof 23: ', typeof 23);
+// console.log('typeof 0: ', typeof 0);
+// console.log('typeof "qweasd": ', typeof 'qweasd');
+// console.log('typeof "": ', typeof '');
+// console.log('typeof true: ', typeof true);
+// -----------------------------------------------------------------------------
+
 // ******************** Numbers ********************
 
 // console.log(Number('23qwe')); //NaN
 // console.log(Number(23)); //23
+// console.log(Number(false)); //0
+// console.log(Number(true)); //1
+// console.log(Number(null)); //0
+// console.log(Number(undefined)); //NaN
+
 // console.log(Number.parseInt('3.14')); //3
 // console.log(Number.parseFloat(Math.PI)); //3.141592653589793
 // console.log(Number.parseFloat('pi3.14')); //NaN
@@ -20,6 +47,19 @@
 // console.log('apple'.indexOf('ap', 1)); //-1
 // console.log('apple'.includes('pp', 2)); //false
 // console.log('apple'.endsWith('le')); //true
+
+// -----------------------------------------------------------------------------
+// const width = '150.228245624562px';
+// console.log('width: ', typeof width, width);
+// const widthInteger = Number.parseInt(width);
+// console.log('widthInteger: ', typeof widthInteger, widthInteger);
+// const widthFloat = Number.parseFloat(width).toFixed(2);
+// console.log('widthFloat: ', typeof widthFloat, widthFloat);
+// -----------------------------------------------------------------------------
+// let pow = 2 ** 4;
+// console.log('pow =', pow);
+// pow = Math.pow(2, 4);
+// console.log('pow =', pow);
 // -----------------------------------------------------------------------------
 //  Виведи на екран загальну кількість всіх яблук
 // -----------------------------------------------------------------------------
@@ -65,11 +105,48 @@
 // console.log(Math.round(massIndex * 100) / 100);
 // -----------------------------------------------------------------------------
 // Яким буде результат виразів? String порівнюються посимвольно по коду символа.
+// При порівнянні з числом відбувається перетворення на число.
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt
 // -----------------------------------------------------------------------------
 // console.log(5 > 4); // true
-// console.log(10 >= '7'); // true.
-// console.log('2' > '12');// true.
+// console.log(8 >= '7'); // true.
+// console.log(5 > '9'); // false
+// console.log('2' > '12'); // true.
+// -----------------------------------------------------------------------------
+// console.log(1 && 5); // true && true -> 5
+// console.log(5 && 1); // true && true -> 1
+// console.log(0 && 2); // false && true -> 0
+// console.log(2 && 0); // true && false -> 0
+// console.log(true || false); // true
+// console.log(false || true); // true
+// console.log(true || true); // true
+// console.log(3 || false); // 3
+// console.log(false || 3); // 3
+// console.log(3 || true); // 3
+// console.log(true || 3); // true
+// console.log("" && "Mango"); // false && true -> ''
+// console.log("Mango" && ""); // true && false -> ''
+// console.log("Mango" && "Poly"); // true && true -> 'Poly'
+// console.log("Poly" && "Mango"); // true && true -> 'Mango'
+// console.log(!true); // false
+// console.log(!false); // true
+// console.log(!3); // !3 -> !true -> false
+// console.log(!"Mango"); // !'Mango' -> !true -> false
+// console.log(!0); // !0 -> !false -> true
+// console.log(!""); // !'' -> !false -> true
+// const isOnline = true;
+// const isNotOnline = !isOnline; // !isOnline -> !true -> false
+// console.log(true && false); // false
+// console.log(false && true); // false
+// console.log(true && true); // true
+// console.log(3 && false); // false
+// console.log(false && 3); // false
+// console.log(3 && true); // true
+// console.log(true && 3); // 3
+// console.log(5 == "5"); // true
+// console.log(5 != "5"); // false
+// console.log(1 == true); // true
+// console.log(1 != true); // false
 // const str = '12';
 // console.log(str.charCodeAt(0));
 // const apple = 'apple';
@@ -117,6 +194,20 @@
 // console.log(0 ?? defaultValue); //0
 // console.log(false ?? defaultValue); //false
 // console.log(defaultValue ?? false); //Kiwi
+// -----------------------------------------------------------------------------
+// const isOnLine = true;
+// const isFriend = true;
+// const isDdsturb = false;
+
+// const canOpenChat = isOnLine && isFriend && !isDdsturb;
+// console.log('canOpenChat: ', canOpenChat);
+// -----------------------------------------------------------------------------
+// const sub = 'vip';
+// const sub = 'pro';
+// const sub = 'free';
+
+// const canHaveAccess = sub === 'vip' || sub === 'pro' || sub !== 'free';
+// console.log('canHaveAccess: ', canHaveAccess);
 // -----------------------------------------------------------------------------
 // Напиши скрипт, який переведе значення `totalMinutes`
 // (кількість хвилин) в рядок у форматі годин та хвилин `HH:MM`.
@@ -256,13 +347,36 @@
 //     console.log('Дата у майбутньому');
 // }
 // -----------------------------------------------------------------------------
+// Напиши скрипт для відображення часу дедлайну здачі проекту. Використовуй `switch`.
+// - Якщо до дедлайну 0 днів - виведи рядок `"Вже зараз"`
+// - Якщо до дедлайну 1 день - виведи рядок `"Вже зараз"`
+// - Якщо до дедлайну 2 дні - виведи рядок `"Ще є час"`
+// - Якщо до дедлайну 3+ днів - виведи рядок `"Дата у майбутньому"`
+// -----------------------------------------------------------------------------
+// const restOfDays = Number(prompt('Скільки днів'));
+// switch (restOfDays) {
+//   case 0:
+//   case 1:
+//     console.log('Вже зараз');
+//     break;
+
+//   case 2:
+//     console.log('Ще є час');
+//     break;
+//   default:
+//     console.log('Дата у майбутньому');
+// }
+// -----------------------------------------------------------------------------
 // Напиши цикл for, який виводить у консоль браузера числа за зростанням
 // від `min` до `max`, але тільки якщо число кратне `5`.
 // -----------------------------------------------------------------------------
 // const min = 13;
 // const max = 89;
 // for (let i = min; i <= max; i += 1) {
-//   if (i % 5 === 0) console.log(i);
+//   if (i % 5 !== 0) {
+//     continue;
+//   }
+//   console.log(i);
 // }
 // -----------------------------------------------------------------------------
 // const min = 13;
@@ -415,6 +529,35 @@
 // } // replacement all 'd', 'e'
 // console.log('string DM: ', wrong.join(''));
 // -----------------------------------------------------------------------------
+// findLongestWord('Google do a roll');
+// findLongestWord('May the force be with you');
+
+// function findLongestWord(string) {
+//   const stringArray = string.split(' ');
+//   let longest = '';
+
+//   for (let i = 0; i < stringArray.length; i += 1) {
+//     if (longest.length < stringArray[i].length) {
+//       longest = stringArray[i];
+//     }
+//   }
+//   console.log('longest: ', longest);
+//   return longest;
+// }
+// -----------------------------------------------------------------------------
+// Create function so that it returns an array of all integers from the value min to max.
+// -----------------------------------------------------------------------------
+// createArrayOfNumbers(1, 5);
+
+// function createArrayOfNumbers(min, max) {
+//   const numbers = [];
+//   for (let i = min; i <= max; i += 1) {
+//     numbers.push(i);
+//   }
+//   console.log('numbers: ', numbers);
+//   return numbers;
+// }
+// -----------------------------------------------------------------------------
 // Напиши скрипт сортування масиву рядків в алфавітному порядку.
 // -----------------------------------------------------------------------------
 // const lang = ['python', 'javascript', 'c++', 'haskel', 'php', 'ruby'];
@@ -434,6 +577,25 @@
 //   reversedString += arrayFromString[i];
 // }
 // console.log('string: ', reversedString);
+// -----------------------------------------------------------------------------
+// Об’єднати більше двох масивів
+// -----------------------------------------------------------------------------
+// const fruits = ['apple', 'banana', 'orange'];
+// const meat = ['poultry', 'beef', 'fish'];
+// const vegetables = ['potato', 'tomato', 'cucumber'];
+// const food = [...fruits, ...meat, ...vegetables];
+// console.log(food);
+// -----------------------------------------------------------------------------
+// function makeArray(firstArray, secondArray, maxLength) {
+//   return console.log(firstArray.concat(secondArray).slice(0, maxLength));
+// }
+// makeArray(['Mango'], ['Ajax', 'Poly', 'Houston'], 3);
+// -----------------------------------------------------------------------------
+// Отримати рандомне значення масиву
+// -----------------------------------------------------------------------------
+// const fruits = ['banana', 'apple', 'orange', 'watermelon', 'apple', 'orange'];
+// const randomFruit = fruits[Math.floor(Math.random() * fruits.length)];
+// console.log(randomFruit);
 
 // -------------------- Functions (Lesson 4) --------------------
 
@@ -441,6 +603,7 @@
 
 // const a = [15, 22, 31, 26, 23];
 // console.log('calcTotal(a) = ', calcTotal(a));
+
 // function calcTotal(numbers) {
 //   let total = 0;
 //   for (const number of numbers) {
@@ -448,7 +611,6 @@
 //   }
 //   return total;
 // }
-// console.log('calcTotal(a) = ', calcTotal(a));
 // -----------------------------------------------------------------------------
 // const b = [1, 2, 5, 4, 7, 34, 12, 9];
 // console.log('Cannot access "calcTotalFE" before initialization');
@@ -463,6 +625,8 @@
 
 // ******************** Usage Features ********************
 
+// findPass(['123qwe', '321QWE', 'qweasd', '456ASD', 'ASDewq'], 'qweasd');
+
 // function findPass(passwords, adminPass) {
 //   for (const password of passwords) {
 //     if (password === adminPass) {
@@ -472,26 +636,34 @@
 //   }
 //   console.log('Wrong password');
 // }
-// findPass(['123qwe', '321QWE', 'qweasd', '456ASD', 'ASDewq'], 'qweasd');
 // -----------------------------------------------------------------------------
+// findPass(['123qwe', '321QWE', 'qweasd', '456ASD', 'ASDewq'], 'qweasd');
+// findPass(['123qwe', '321QWE', 'qweasd', '456ASD', 'ASDewq'], 'DM');
+
 // function findPass(passwords, adminPass) {
 //   return passwords.includes(adminPass)
 //     ? console.log('Hello')
 //     : console.log('Wrong password');
 // }
-// findPass(['123qwe', '321QWE', 'qweasd', '456ASD', 'ASDewq'], 'qweasd');
-// findPass(['123qwe', '321QWE', 'qweasd', '456ASD', 'ASDewq'], 'DM');
 // -----------------------------------------------------------------------------
+// findMin([1, 2, 5, 4, 7, 34, 12, 9, 15, -3, 31, 26, 23]);
+// findMin([4, 7, 34, 12, 9, 15, 1, 31, 26, 23]);
+
 // function findMin(numbers) {
 //   let minNumber = numbers[0];
 //   for (const number of numbers) {
 //     minNumber = minNumber < number ? minNumber : number;
 //   }
-//   return console.log('minNumber = ', minNumber);
+//   return console.log(
+//     'minNumber =',
+//     minNumber,
+//     ' Math.min(...) =',
+//     Math.min(...numbers)
+//   );
 // }
-// findMin([1, 2, 5, 4, 7, 34, 12, 9, 15, -3, 31, 26, 23]);
-// findMin([4, 7, 34, 12, 9, 15, 1, 31, 26, 23]);
 // -----------------------------------------------------------------------------
+// reverse('dEPECHE mODE');
+
 // function reverse(string) {
 //   let reverseString = '';
 //   for (const letter of string.split('')) {
@@ -502,9 +674,10 @@
 //   }
 //   return console.log(reverseString);
 // }
-// reverse('dEPECHE mODE');
 // -----------------------------------------------------------------------------
+// console.log(normString('How can I make a Chain of Calls???'));
 // console.log(normString('I have to make a Chain of Calls!!!'));
+
 // function normString(string) {
 //   return string
 //     .replaceAll('!', '')
@@ -513,22 +686,52 @@
 //     .split(' ')
 //     .join('-');
 // }
-// console.log(normString('How can I make a Chain of Calls???'));
 // -----------------------------------------------------------------------------
+// multiply(2, 4, 5, 10);
+
 // function multiply() {
 //   let total = 1;
 //   for (const varName of arguments) total *= varName;
 //   return console.log('total = ', total);
 // }
-// multiply(2, 4, 5, 10);
 // -----------------------------------------------------------------------------
+// fn(2, 3, 4, 5, 6);
+
 // function fn(a, b, ...argToArray) {
 //   Array.from(arguments);
 //   console.log(arguments);
 //   console.log('Array.from():', Array.from(arguments));
 //   console.log('a =', a, 'b =', b, 'argToArray = ', argToArray);
 // }
-// fn(2, 3, 4, 5, 6);
+// -----------------------------------------------------------------------------
+// Write a function getCommonElements(array1, array2) that takes two arrays of
+// arbitrary length in the parameters array1 and array2 and returns a new array
+// consisting of those elements that are present in both of the original arrays.
+// -----------------------------------------------------------------------------
+// getCommonElements1([24, 12, 27, 3], [12, 8, 3, 36, 27]);
+// getCommonElements2([24, 12, 27, 3], [12, 8, 3, 36, 27]);
+
+// function getCommonElements1(array1, array2) {
+//   const array = [];
+//   for (const element1 of array1) {
+//     for (const element2 of array2) {
+//       if (element1 === element2) {
+//         array.push(element1);
+//       }
+//     }
+//   }
+//   return console.log(array);
+// }
+
+// function getCommonElements2(array1, array2) {
+//   const array = [];
+//   for (let i = 0; i < array1.length; i += 1) {
+//     if (array2.includes(array1[i])) {
+//       array.push(array1[i]);
+//     }
+//   }
+//   return console.log(array);
+// }
 // -----------------------------------------------------------------------------
 // matchToArray([3, 7, 5, 1, 8], 0, 3, 6, 5, 2, 1, 3);
 
@@ -555,6 +758,8 @@
 // matchToData([3, 7, 5, 1, 8], 0, 3, 6, 5, 2, 1, 3);
 
 // function matchToData(data, ...arg) {
+//   console.log('data: ', Math.max(...arg));
+
 //   let match = [];
 //   for (const argItem of arg) {
 //     if (data.includes(argItem)) {
@@ -565,7 +770,109 @@
 //   return match;
 // }
 // -----------------------------------------------------------------------------
+// The getSubscriptionPrice(type) function gets a string with the user's subscription
+// type(the type parameter), checks it against the three possible types of monthly
+// subscriptions, and returns the price stored in the price variable.
+// -----------------------------------------------------------------------------
+// getSubscriptionPrice('professional');
 
+// function getSubscriptionPrice(type) {
+//   let price;
+//   switch (type) {
+//     case 'starter':
+//       price = 0;
+//       break;
+//     case 'professional':
+//       price = 20;
+//       break;
+//     case 'organization':
+//       price = 50;
+//       break;
+//   }
+//   return console.log('price: ', price);
+// }
+// -----------------------------------------------------------------------------
+// The checkPassword(password) function takes the password in the password parameter,
+// checks it against the administrator password in the ADMIN_PASSWORD variable, and
+// returns a message about the result of the comparison.
+// -----------------------------------------------------------------------------
+// checkPassword('polyhax');
+
+// function checkPassword(password) {
+//   const ADMIN_PASSWORD = 'jqueryismyjam';
+//   let message;
+//   switch (password) {
+//     case null:
+//       message = 'Canceled by user!';
+//       break;
+//     case 'jqueryismyjam':
+//       message = 'Welcome!';
+//       break;
+//     default:
+//       message = 'Access denied, wrong password!';
+//   }
+//   return console.log(message);
+// }
+// -----------------------------------------------------------------------------
+// Write a function filterArray(numbers, value), that takes an array of numbers
+// (the numbers parameter) and returns a new array containing only those elements
+// of the numbers array that are greater than the value of the value parameter(number).
+// -----------------------------------------------------------------------------
+// filterArray([12, 24, 8, 41, 76], 20);
+
+// function filterArray(numbers, value) {
+//   const filtred = [];
+//   for (let i = 0; i < numbers.length; i += 1) {
+//     if (numbers[i] > value) {
+//       filtred.push(numbers[i]);
+//     }
+//   }
+//   console.log(filtred);
+//   return filtred;
+// }
+// -----------------------------------------------------------------------------
+// The checkForSpam(message) function takes a string (the message parameter),
+// checks it for the forbidden words spam and sale, and returns the result of the
+// check. Words in the string of the message parameter can be in arbitrary case,
+// for example SPAM or sAlE.
+// -----------------------------------------------------------------------------
+// checkForSpam('Get best sale offers now!');
+
+// function checkForSpam(message) {
+//   let result;
+//   result =
+//     message.toLowerCase().includes('spam') ||
+//     message.toLowerCase().includes('sale');
+//   return console.log(result);
+// }
+// -----------------------------------------------------------------------------
+// Сгенерувати випадкові числа в межах max - min
+// -----------------------------------------------------------------------------
+// let max = 0;
+// let min = 0;
+// while (max <= min || Boolean(max) === false || Boolean(min) === false) {
+//   max = Number.parseInt(prompt('Input MAX number'));
+//   min = Number.parseInt(prompt('Input MIN number'));
+// }
+// console.log('min =', min);
+// console.log('max =', max);
+// const random = (Math.random() * (max - min) + min).toFixed(2);
+// console.log('random =', random);
+// -----------------------------------------------------------------------------
+// Нормалізувати рядок (перші букви - великі, інші - маленькі)
+// -----------------------------------------------------------------------------
+function normalizeString(string) {}
+
+// -----------------------------------------------------------------------------
+// Пошук в рядку частин слів 'розпрод' та 'рекл' незалежно від регістру
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// Доставка в залежності від опції checkbox:
+// 'Завтра з офісу', 'Сьогодні поштою', 'В зручний час зі складу'
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
 //
 //
 //
@@ -589,3 +896,35 @@
 // -------------------- Pagination (Lesson 20) --------------------
 // -------------------- CRUD (Lesson 21) --------------------
 // -------------------- Syntax async/await (Lesson 22) --------------------
+
+// ******************** Питання ********************
+
+// Яким буде результат виразів? String порівнюються посимвольно по коду символа.
+// При порівнянні з числом відбувається перетворення на число.
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt
+// -----------------------------------------------------------------------------
+// console.log(5 > 4); // true
+// console.log(8 >= '7'); // true.
+// console.log(5 > '9'); // false
+// console.log('2' > '12'); // true.
+// -----------------------------------------------------------------------------
+// while (max <= min || Boolean(max) === false || Boolean(min) === false)
+// ********************
+// let max = 0;
+// let min = 0;
+// while (max <= min || max === NaN || min === NaN) {
+// max = Number.parseInt(prompt('Input MAX number'));
+// min = Number.parseInt(prompt('Input MIN number'));
+// }
+// console.log('min =', min);
+// console.log('max =', max);
+// const random = (Math.random() * (max - min) + min).toFixed(2);
+// console.log('random =', random);
+// -----------------------------------------------------------------------------
+// The six values ​​that are converted by Boolean() to `false`:
+// `0`, `NaN`, `null`, `undefined`, an empty string `""` or `''` and the value `false` itself.
+// Everything else is converted to`true`.
+
+// console.log('Boolean(''): ', Boolean());
+
+// -----------------------------------------------------------------------------

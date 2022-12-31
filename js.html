@@ -130,12 +130,11 @@
         braces <b>{}</b> (conditions, loops, functions, etc.) creates a new local scope, and variables declared in this
         scope using <b>let</b> or <b>const</b> are not available outside this block.</p>
       <h3>Primitive types</h3>
-      <p>In JavaScript, a variable is not associated with any data type; its value has a type. That is, a variable can
-        store values of various types. <b>typeof</b> operator is used to get the variable's value type. It returns in
-        place of its call the value type of the variable specified after it.</p>
+      <p><b>typeof</b> operator is used to get the variable's value type. It returns in place of its call the value type
+        of the variable specified after it. A variable is not associated with any data type; its value has a type.</p>
       <ul>
         <li><b>number</b> - integers and floating-point numbers.</li>
-        <li><b>string</b> - indexed set of zero or more characters, enclosed in single or double quotes;</li>
+        <li><b>string</b> - indexed set of zero or more characters, enclosed in single double or back quotes;</li>
         <li><b>boolean</b> - logical data type, true/false flags;</li>
         <li><b>null</b> - special value that essentially means nothing, is used in situations where emptiness must be
           explicitly indicated;</li>
@@ -161,6 +160,7 @@
           compared values to numbers.</li>
       </ul>
       <h3>Numbers</h3>
+
       <ul>
         <li><b>Number()</b> function - most operations and functions convert a value to a number automatically, use this
           function to do
@@ -178,11 +178,12 @@
         <li><b>Math.random()</b> method - returns a pseudo-random number in the range (0, 1).</li>
       </ul>
       <h3>Strings</h3>
-      <p>If you apply the <b>+</b> operator to a string and any other data type, the result of this addition is a
-        string. This operation is called <b>concatenation</b>, or string addition. Template strings are an alternative
-        to concatenation with more convenient syntax, they may contain placeholders with the dollar sign and curly
-        braces - <b>${expression}</b></p>
+      <p>The content of a string cannot be changed, only read. </p>
       <ul>
+        <li>If you apply the <b>+</b> operator to a string and any other data type, the result of this addition is a
+          string. This operation is called <b>concatenation</b>, or string addition. Template strings are an alternative
+          to concatenation with more convenient syntax, they may contain placeholders with the dollar sign and curly
+          braces - <b>${</b><i>expression</i><b>}</b></li>
         <li><b>.length</b> property - to get value of a string;</li>
         <li><b>.toLowerCase()</b> method - return a new string in the lower case without modifying the original string;
         </li>
@@ -255,7 +256,7 @@
       <ul>
         <li><b>while (</b><i>condition</i><b>) {</b><i>//statement</i><b>}</b> - pre-test loop is a loop that is
           executed as long as a condition specified before its beginning stays true;</li>
-        <li><b>do {</b><i>//statement</i><b>} while (</b><i>condition</i> <b>)</b> - post-test loop is a loop in which
+        <li><b>do {</b><i>//statement</i><b>} while (</b><i>condition</i><b>)</b> - post-test loop is a loop in which
           the condition is tested after executing the loop body;</li>
         <li><b>for (</b><i>let i = 0; i < max; i +=n</i><b>) {</b><i>//statements</i><b>}</b> - count-controlled loop
               in which a variable changes its value from a set initial value to an end value with a step, and for each
@@ -353,9 +354,13 @@
           <i>position</i> indicates the position (index) of the first element to be removed <i>num</i> determines the
           number of elements to be removed;
         </li>
-        <li><b>.concat(</b><i>arrayName</i><b>)</b> method - consolidates two or more arrays into one;</li>
+        <li><b>.concat(</b><i>arrayName1, arrayName2, ...</i><b>)</b> method - consolidates two or more arrays into one;
+        </li>
         <li><b>.sort([(a, b) => a - b)])</b> method - sorts the elements of an array;</li>
-        <li><b>.reverse()</b> method - reverses an array.</li>
+        <li><b>.reverse()</b> method - reverses an array;</li>
+        <li><b>rest parameter</b> syntax allows to apply any Math.methodName to an Array:
+          <i>Math.methodName</i><b>(...</b><i>arrayName</i><b>)</b>.
+        </li>
       </ul>
     </section>
     <section class="functions">
@@ -373,7 +378,7 @@
         <li>Function expression <b>const</b> <i>functionName</i> = <b>function(</b><i>parameters</i><b>)
             {</b><i>\\function body</i><b>}</b> - cannot be called before its creation, only after, as it is literally a
           const variable declaration;</li>
-        <li> Function calling <b><i>functionName</i></b><b>(</b><i>arguments</i><b>)</b> - in parentheses you can pass
+        <li>Function calling <b><i>functionName</i></b><b>(</b><i>arguments</i><b>)</b> - in parentheses you can pass
           <i><b>arguments</b></i>, i.e. values for the declared function <i><b>parameters</b></i>.
         </li>
       </ul>
@@ -389,9 +394,8 @@
           <i>function createArray() {const newArray =</i> <b>Array.from(</b>arguments<b>)</b><i>; return
             newArray}</i>
         </li>
-        <li>function <i>fnName</i><b>(<i>...argToArray</i>)</b> <i></i>{\\function body}</i> - another methon
-          to create an array from a pseudo-array:<br>
-          <i>function fnName<b>(...argToArray)</b> {There is access to Array <b>'argToArray'</b>
+        <li><b>rest parameter</b> syntax allows a function to accept an indefinite number of arguments as an array:<br>
+          <i>function fnName<b>(...</b>argToArray<b>)</b> {There is access to Array <b>'argToArray'</b>
             <i> that was made from <b>arguments</b>}
             </i>
         </li>

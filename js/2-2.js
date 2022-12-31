@@ -1,74 +1,3 @@
-console.log('Lesson 4');
-// # Модуль 2. Заняття 4. Функції
-
-// ## Example 1 - Індекс маси тіла
-
-// Напиши функцію `calcBMI(weight, height)` яка розраховує та повертає
-// індекс маси тіла людини. Для цього необхідно розділити вагу в кілограмах на
-// квадрат висоти людини в метрах.
-
-// Вага та висота будуть спеціально передані як рядки. Не цілі числа можуть бути задані у вигляді
-// `24.7` або `24,7`, тобто як роздільник дробової частини
-// може бути кома.
-
-// Індекс маси тіла необхідно округлити до однієї цифри після коми;
-
-// ```js
-
-/**
- * 1. запитати користувача його зріст і вагу
- * 2. написати функцію, яка приймає два аругменти і повертає індекс маси тіла
- */
-
-const calcBMI = function(w, h) {
-  const weight = Number(w.replace(',', '.'));
-  const height = Number(h.replace(',', '.'));
-
-  const heightPow = Math.pow(height, 2);
-
-  return weight / heightPow
-}
-
-// const weight = prompt('введіть свою вагу в кілграмах');
-// const height = prompt('введіть свій зріст в метрах');
-
-// const bmi = calcBMI(weight, height);
-// console.log(bmi); // 28.8
-// ```
-
-// ## Example 2 - Найменше з чисел
-
-// Напиши функцію `min(a,b)`, яка повертає найменше з чисел `a` та `b`.
-
-// ```js
-
-const min = function (a, b) {
-  return a > b ? b : a;
-} 
-
-console.log(min(2, 5)); // 2
-console.log(min(3, -1)); // -1
-console.log(min(1, 1)); // 1
-console.log(min(4, 4)); // 1
-// ```
-
-// ## Example 3 - Площа прямокутника
-
-// Напиши функцію `getRectArea(dimensions)` для обчислення площі прямокутника
-// зі сторонами, значення яких будуть передані до параметра `dimensions` у вигляді
-// рядка. Значення гарантовано розділені пробілом.
-
-// ```js
-// console.log("square = ", getRectArea('8 11'));
-
-function getRectArea(dimensions) {
-  const sizesArr = dimensions.split(' ');
-
-  return sizesArr[0] * sizesArr[1]
-}
-
-// ```
-
 // ## Example 4 - Логування елементів
 
 // Напиши функцію `logItems(items)`, яка отримує масив та використовує цикл
@@ -86,10 +15,9 @@ function logItems(items) {
   // }
 
   for (let item of items) {
-    const i = items.indexOf(item)
-    console.log(`${i + 1} - ${item}`)
+    const i = items.indexOf(item);
+    console.log(`${i + 1} - ${item}`);
   }
-
 }
 
 // logItems(['Mango', 'Poly', 'Ajax']);
@@ -114,7 +42,7 @@ function printContactsInfo(names, phones) {
   const result = [];
   // 1
   for (let i = 0; i < namesArray.length; i += 1) {
-    result.push(`${namesArray[i]} - ${phonesArray[i]}`)
+    result.push(`${namesArray[i]} - ${phonesArray[i]}`);
   }
 
   // // 2
@@ -123,7 +51,7 @@ function printContactsInfo(names, phones) {
   //   console.log(`${namesArray[i]} - ${phonesArray[i]}`)
   // }
 
-  return result.sort()
+  return result.sort();
 }
 
 // printContactsInfo(
@@ -147,8 +75,8 @@ function printContactsInfo(names, phones) {
 // ```js
 function findLargestNumber(numbers) {
   //1
-  return Math.max(...numbers)
-  
+  return Math.max(...numbers);
+
   //2
   // let max = numbers[0];
   // for (let element of numbers) {
@@ -171,14 +99,13 @@ console.log(findLargestNumber([49, 4, 7, 83, 12])); // 83
 
 // ```js
 function calcAverage(...numbers) {
-  
   // console.log(numbers)
 
   // console.log("Total arguments = ", arguments.length);
-  
+
   let sum = 0;
   for (let arg of numbers) {
-    sum += arg
+    sum += arg;
   }
 
   // return sum / arguments.length
@@ -207,11 +134,11 @@ function calcAverage(...numbers) {
 function formatTime(minutes) {
   const hours = Math.floor(minutes / 60);
   const mins = minutes % 60;
-  
-  const formatedHours = String(hours).padStart(2, '0')
-  const formatedMinutes = String(mins).padStart(2, '0')
-  
-  return `${formatedHours}:${formatedMinutes}`
+
+  const formatedHours = String(hours).padStart(2, '0');
+  const formatedMinutes = String(mins).padStart(2, '0');
+
+  return `${formatedHours}:${formatedMinutes}`;
 }
 
 const a = formatTime(1440);
@@ -234,13 +161,11 @@ const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
 const lastCourseIndex = courses.length - 1;
 const lastCourse = courses[lastCourseIndex];
 
-function A (array) {
-  console.log(array)
-  
+function A(array) {
+  console.log(array);
 }
 
-A([1,2,3,4])
-
+A([1, 2, 3, 4]);
 
 function addCourse(name) {
   // if (courses.includes(name)) {
@@ -248,11 +173,11 @@ function addCourse(name) {
   // }
 
   if (courses.indexOf(name) > -1) {
-    return 'Ви вже маєте такий курс'
+    return 'Ви вже маєте такий курс';
   }
 
   courses.push(name);
-  return 'Курс додано'
+  return 'Курс додано';
 }
 
 function deleteCourse(name = 'deafult value') {
@@ -263,30 +188,29 @@ function deleteCourse(name = 'deafult value') {
 
   const index = courses.indexOf(name);
   if (index === -1) {
-    return 'Такого курса нема'
+    return 'Такого курса нема';
   }
 
-  const result = `Курс ${courses[index]} видалено`
+  const result = `Курс ${courses[index]} видалено`;
   courses.splice(index, 1);
-  
-  return result
+
+  return result;
 }
 
-function updateCourse (oldName, newName) {
-  
+function updateCourse(oldName, newName) {
   const index = courses.indexOf(oldName);
   if (index === -1) {
-    return 'Такого курса нема'
+    return 'Такого курса нема';
   }
 
-  const result = `Курс ${oldName} оновлено на курс ${newName}`
+  const result = `Курс ${oldName} оновлено на курс ${newName}`;
   courses.splice(index, 1, newName);
-  
-  return result
+
+  return result;
 }
-const arr = [8,9,10];
+const arr = [8, 9, 10];
 arr.sort();
-console.log()
+console.log();
 
 let res = addCourse('Express');
 console.log(courses, res); // ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL', 'Express']
