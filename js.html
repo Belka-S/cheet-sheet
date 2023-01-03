@@ -195,12 +195,20 @@
           string, returns true/false;</li>
         <li><b>.endsWith(</b>searchString[, length]<b>)</b> method - determines if a string ends with the characters
           (substring) specified in parentheses, returns true/false</li>
+        <li><b>.startsWith(</b>searchString[, length]<b>)</b> method - determines if a string starts with the characters
+          (substring) specified in parentheses, returns true/false</li>
         <li><b>.replace(</b>regexp|substr, newSubStr|function[, flags]<b>)</b> method - return a new string in which the
           first substring matches have been replaced with the specified value;</li>
         <li><b>.replaceAll(</b>regexp|substr, newSubstr|function<b>)</b> method - return a new string in which all
           substring matches have been replaced with the specified value;</li>
-        <li><b>.padStart(</b>targetLength [, padString]<b>)</b> method - pads the current string with another string
-          until the resulting string reaches the given length;</li>
+        <li><b>.padStart(</b>targetLength [, padString]<b>)</b> method - pads the current string from the start with
+          another string until the resulting string reaches the given length;</li>
+        <li><b>.padEnd(</b>targetLength [, padString]<b>)</b> method - pads the current string from the end with another
+          string until the resulting string reaches the given length;</li>
+        <li><b>.at(</b>index<b>)</b> method takes an integer value and returns a new String consisting of the single
+          UTF-16 code unit located at the specified offset;</li>
+        <li><b>.substring(</b>indexStart[, indexEnd]<b>)</b> method - returns the part of the string between the start
+          and end indexes, or to the end of the string.</li>
         <li><b>.trim()</b> method - removes whitespace from both ends of a string and returns a new string, without
           modifying the original string.</li>
       </ul>
@@ -322,7 +330,7 @@
       <h3>Array Methods</h3>
       <ul>
         <li><b>.split(</b><i>delimiter</i><b>)</b> method - converts a string to an array by splitting it with
-          <i>delimiter</i>;
+          <i>delimiter</i>, strArray = strArray.split(<b>/\s+/</b>) - unlimited space pattern;
         </li>
         <li><b>.join(</b><i>delimiter</i><b>)</b> method - joins the elements of an array into a string by joining it
           with <i>delimiter</i>;
@@ -332,13 +340,12 @@
         <li><b>.includes(</b><i>value</i><b>)</b> method - checks if there is an element with <i>value</i> in the array,
           and it returns <i>true</i> or <i>false</i>;</li>
         <li><b>.push(</b><i>value1, value2, ...</i><b>)</b> method - adds one or more elements to the end of the array,
-          without the
-          need to specify the indices of the added elements;</li>
+          without the need to specify the indices of the added elements;</li>
         <li><b>.pop(</b><i>value</i><b>)</b> method - removes the last element from the end of the array and returns the
           removed element, if the array is empty, it returns <i>undefined</i>;</li>
         <li><b>.unshift(</b><i>value1, value2, ...</i><b>)</b> method - adds one or more elements to the beginning of
           the array, without the need to specify the indices of the added elements;</li>
-        <li><b>.shift(</b><i>value</i><b>)</b> method - removes the last element from the beginning of the array and
+        <li><b>.shift(</b><i>value</i><b>)</b> method - removes one element from the beginning of the array and
           returns the removed element, if the array is empty, it returns <i>undefined</i>;</li>
         <li><b>.slice(</b><i>beginIndex, endIndex</i><b>)</b> method - returns a new array which is a partial copy from
           <i>beginIndex</i> to, but not including, <i>endIndex</i>;

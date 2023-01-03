@@ -859,24 +859,163 @@
 // const random = (Math.random() * (max - min) + min).toFixed(2);
 // console.log('random =', random);
 // -----------------------------------------------------------------------------
-// Нормалізувати рядок (перші букви - великі, інші - маленькі)
-// -----------------------------------------------------------------------------
-function normalizeString(string) {}
-
-// -----------------------------------------------------------------------------
-// Пошук в рядку частин слів 'розпрод' та 'рекл' незалежно від регістру
-// -----------------------------------------------------------------------------
-
-// -----------------------------------------------------------------------------
 // Доставка в залежності від опції checkbox:
 // 'Завтра з офісу', 'Сьогодні поштою', 'В зручний час зі складу'
 // -----------------------------------------------------------------------------
+// deliveryDay('office', 'post', 'warehouse');
 
+// function deliveryDay(...delivery) {
+//   let choice;
+//   for (const type of delivery) {
+//     choice = prompt('Як зручно забрати?', type);
+//     if (choice !== null) break;
+//   }
+
+//   switch (choice) {
+//     case 'office':
+//       console.log('Завтра з офісу');
+//       break;
+//     case 'post':
+//       console.log('Сьогодні поштою');
+//       break;
+//     case 'warehouse':
+//       console.log('В зручний час зі складу');
+//       break;
+//     default:
+//       console.log('Не то ввели');
+//   }
+// }
+// ****************************************
+// deliveryDay('office', 'post', 'warehouse');
+
+// function deliveryDay() {
+//   let choice;
+//   for (const type of arguments) {
+//     choice = prompt('Як зручно забрати?', type);
+//     if (choice !== null) break;
+//   }
+
+//   switch (choice) {
+//     case 'office':
+//       console.log('Завтра з офісу');
+//       break;
+//     case 'post':
+//       console.log('Сьогодні поштою');
+//       break;
+//     case 'warehouse':
+//       console.log('В зручний час зі складу');
+//       break;
+//     default:
+//       console.log('Не то ввели');
+//   }
+// }
 // -----------------------------------------------------------------------------
-//
-//
-//
-//
+//// Напиши функцію `logItems(items)`, яка отримує масив та використовує цикл
+// `for`, який для кожного елемента масиву буде виводити в консоль повідомлення у
+// форматі `<номер елемента> - <значення елемента>`. Нумерація починається з `1`.
+// -----------------------------------------------------------------------------
+// logItems('Mango', 'Poly', 'Ajax');
+// logItems(['🍎', '🍇', '🍑', '🍌', '🍋']);
+
+// function logItems(items) {
+//   if (typeof items === 'string') {
+//     const items = Array.from(arguments);
+//     for (let i = 0; i < items.length; i += 1) {
+//       console.log(`${i + 1} - ${items[i]}`);
+//     }
+//   } else {
+//     for (let i = 0; i < items.length; i += 1) {
+//       console.log(`${i + 1} - ${items[i]}`);
+//     }
+//   }
+// }
+// -----------------------------------------------------------------------------
+// Функція `findLargestNumber(numbers)`яка шукає найбільше число в масиві.
+// -----------------------------------------------------------------------------
+// findLargestNumber([2, 17, 94, 1, 23, 37]); // 94
+// findLargestNumber([49, 4, 7, 83, 12]); // 83
+
+// function findLargestNumber(numbers) {
+//   console.log(Math.max(...numbers));
+// }
+// -----------------------------------------------------------------------------
+// Нормалізувати рядок рядок з кількох слів (перші букви - великі, інші - маленькі)
+// -----------------------------------------------------------------------------
+// normString('   dEpechE   moDe');
+// normString(' hAppY     NEW        yEAr!');
+
+// function normString(string) {
+//   let strArray = string.toLowerCase().trim();
+//   strArray = strArray.split(' ');
+
+//   while (strArray.includes('')) {
+//     strArray.splice(strArray.indexOf(''), 1);
+//   }
+//   for (let index = 0; index < strArray.length; index += 1) {
+//     {
+//       const a = strArray[index].at(0).toUpperCase();
+//       const b = strArray[index].replace(strArray[index].at(0), '');
+//       strArray[index] = a + b;
+//     }
+//   }
+//   const normString = strArray.join(' ');
+//   console.log(string);
+//   console.log(normString);
+// }
+// -----------------------------------------------------------------------------
+// normString('   dEpechE   moDe');
+// normString('hAppY     NEW        yEAr!');
+
+// function normString(string) {
+//   let strArray = string.toLowerCase().trim();
+//   while (strArray.includes('')) {
+//     strArray.splice(strArray.indexOf(''), 1);
+//   }
+//   for (let index = 0; index < strArray.length; index += 1) {
+//     {
+//       const a = strArray[index].at(0).toUpperCase();
+//       const b = strArray[index].replace(strArray[index].at(0), '');
+//       strArray[index] = a + b;
+//     }
+//   }
+//   const normString = strArray.join(' ');
+//   console.log(string);
+//   console.log(normString);
+// }
+// // ********************
+// function normString(string) {
+//   const strArray = string.trim().toLowerCase().split(/\s+/);
+//   let normArray = [];
+//   for (const item of strArray) {
+//     normArray.push(item.at(0).toUpperCase() + item.substring(1));
+//   }
+//   const normString = normArray.join(' ');
+//   console.log(string);
+//   console.log(normString);
+// }
+// // ********************
+// function normString(string) {
+//   let strArray = string.trim().toLowerCase().split(/\s+/);
+
+//   for (let i = 0; i < strArray.length; i += 1) {
+//     strArray[i] = strArray[i].at(0).toUpperCase() + strArray[i].substring(1);
+//   }
+//   const normString = strArray.join(' ');
+//   console.log(string);
+//   console.log(normString);
+// }
+// // ********************
+// function normString(string) {
+//   const strArray = string.trim().toLowerCase().split(/\s+/);
+//   let normString = '';
+//   for (let i = 0; i < strArray.length; i += 1) {
+//     normString +=
+//       ' ' + strArray[i].at(0).toUpperCase() + strArray[i].substring(1);
+//   }
+//   normString = normString.trim();
+//   console.log(string);
+//   console.log(normString);
+// }
 
 // -------------------- Objects (Lesson 5) --------------------
 // -------------------- Destructuring and spread/rest (Lesson 6) --------------------
@@ -927,4 +1066,6 @@ function normalizeString(string) {}
 
 // console.log('Boolean(''): ', Boolean());
 
+// -----------------------------------------------------------------------------
+//  .split(/\s+/)
 // -----------------------------------------------------------------------------
