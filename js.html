@@ -25,12 +25,12 @@
           <li><a href="#functions">Functions (Lesson 4)</a></li>
           <li><a href="#objects">Objects (Lesson 5)</a></li>
           <li><a href="#destructuring">Destructuring and spread/rest (Lesson 6)</a></li>
-          <li><a href="#">Callbacks and Arrow Functions (Lesson 7)</a></li>
-          <li><a href="#">Iterating Array Methods (Lesson 8)</a></li>
+          <li><a href="#callbacks">Callbacks and Arrow Functions (Lesson 7)</a></li>
+          <li><a href="#iterating">Iterating Array Methods (Lesson 8)</a></li>
           <li><a href="#">The keyword this (Lesson 9)</a></li>
           <li><a href="#">Prototypes and Classes (Lesson 10)</a></li>
-          <li><a href="#">Destructuring and spread/rest (Lesson 11)</a></li>
-          <li><a href="#">Callbacks and Arrow Functions (Lesson 12)</a></li>
+          <li><a href="#">DOM (Lesson 11)</a></li>
+          <li><a href="#">Events (Lesson 12)</a></li>
           <li><a href="#">Event Delegation (Lesson 13)</a></li>
           <li><a href="#">Throttle/Debounce and Lazyload (Lesson 14)</a></li>
           <li><a href="#">Code Modularity (Lesson 15)</a></li>
@@ -402,9 +402,8 @@
             newArray}</i>
         </li>
         <li><b>rest parameter</b> syntax allows a function to accept an indefinite number of arguments as an array:<br>
-          <i>function fnName<b>(...</b>argToArray<b>)</b> {There is access to Array <b>'argToArray'</b>
-            <i> that was made from <b>arguments</b>}
-            </i>
+          <i>function fnName<b>(...</b>argToArray<b>)</b> {There is access to Array <b>'argToArray'</b> that was made
+            from <b>arguments</b>}</i>
         </li>
         <li><b>return</b> operator passes a value from the function body to external code and exit the function:<br>
           <i>function multiply(x, y, z) {</i><b>return</b> <i>x * y * z;}</i>;
@@ -418,14 +417,14 @@
             <b>return</b>;}<br>
             console.log("Withdrawal has been successful");}</i>
         </li>
-
       </ul>
       <h3>Scope</h3>
       <p><b>Scope</b> is a mechanism that determines the availability of variables in your code. <b>Scope chain</b>:
         scopes form a hierarchy so that child scopes can access variables from parent scopes, but not vice versa. </p>
       <ul>
         <li>Variables declared at the very top level, that is, outside of any constructs like <i>if</i>, <i>while</i>,
-          <i>for</i> and <i>functions</i>, are in the <b>global scope</b>, and they are available everywhere after they
+          <i>for</i> and <i>functions</i>, are in the <b>global scope</b>, and they are available everywhere after
+          they
           are declared.
         </li>
         <li>Variables declared inside <i>if</i> and <i>for</i> statements, <i>functions</i> and other blocks of code
@@ -433,13 +432,15 @@
           block of code or those nested inside it. </li>
         <li><b>Scope chain look-up</b> - the interpreter first tries to find a variable in the scope in which such
           variable was accessed. If there is no such variable in the local scope, then the interpreter goes out, one
-          level per attempt, until it finds the necessary value or reaches the topmost scope (global) and realizes that
+          level per attempt, until it finds the necessary value or reaches the topmost scope (global) and realizes
+          that
           no variable with such an identifier can be found, since it does not exist</li>
       </ul>
       <h3>Call Stack</h3>
       <p><b>Call stack</b> is a mechanism for keeping track of where the interpreter is located in the code that calls
         multiple functions. You can see which of the functions is currently being executed, which functions are called
-        from within the function being executed, which will be called next, etc. <i><b>Stack</b></i> is a data structure
+        from within the function being executed, which will be called next, etc. <i><b>Stack</b></i> is a data
+        structure
         using the <b>LIFO</b> (Last-In-First-Out) principle. The last thing that is added to the stack will be removed
         from it first, which means that you can add or remove elements only from the top of the stack.</p>
     </section>
@@ -447,25 +448,156 @@
       <a href=" #goit">
         <h2 id="objects">Objects (Lesson 5)</h2>
       </a>
+      <h3>Object properties and methods</h3>
+      <p>Objects serve to describe and group the characteristics of an entity. Objects are also called dictionaries,
+        that is, they contain terms (<b>properties</b>) and their definitions (<b>values</b>). Objects can store not
+        only data, but also functions for working with this data, i.e. methods. If the property value is a function,
+        such property is called an <b>object method</b>. Such objects can be called <b>models</b>. They couple data with
+        methods to work with that data.</p>
+      <ul>
+        <li>const <b>object</b> = <b>{propertyKey: value, ...}</b> - object creation, property value can be another
+          object in order to store nested and grouped data; </li>
+        <li>const <b>object</b> = <b>{variableName, ...}</b> - shorthand object creation, when creating an object and
+          you need to take the property value from a variable or function parameter of the same name as the property;
+        </li>
+        <li><b>Object.create(</b><i>proto[, propertiesObject]</i><b>)</b> method - creates a new object, using an
+          existing object as the prototype of the newly created object;</li>
+        <li>object<b>.propertyKey</b> - a way to access a property of an object;</li>
+        <li>object<b>.propertyKey.nestedPropertyKey</b> - a way to access nested properties;</li>
+        <li>object<b>["propertyKey"]</b> - another way to access a property of an object;</li>
+        <li><b>changing</b> or <b>adding</b> objects property values - refer to them by name and assign a new value;
+        </li>
+        <li>const <i>object = {propertyKey: value1,</i> <b>[variableName]</b><i>: value2, ...}</i> - to add a property
+          with a name that you do not know, as it is stored as the value of a variable or as the result of a function,
+          the value of a <b>computed property</b> can be any valid expression;</li>
+        <li><b>this.</b>propertyKey - to access the properties of an object in methods, we refer to it through
+          <b><i>this</i></b> and then, as usual, to its properties using dot notation.
+        </li>
+      </ul>
+      <h3>Iteration</h3>
+      <ul>
+        <li>
+          <b>for (</b><i>const key</i> <b>in</b> <i>objectName</i><b>) {</b> \\ - to iterate over objects<br>
+          <i>key</i>; \\ - to access properties<br>
+          <i>objectName</i><b>[</b><i>key</i><b>]</b>;<b>}</b> \\ - to access values of the proherties<br>
+        </li>
+        <li><b>hasOwnProperty(</b><i>key</i><b>)</b> method - returns a boolean indicating whether the object has the
+          specified property as its own property or inherited one;</li>
+        <li><b>Object.keys(</b><i>object</i><b>)</b> method - returns an array of own property keys of an object;</li>
+        <li><b>Object.values(</b><i>object</i><b>)</b> method - returns an array of its own property values</li>
+        <li><b>Object.entries(</b><i>object</i><b>)</b> method returns an array, with each element as another array of
+          the propertyName and the value of this property.</li>
+      </ul>
+      <h3>Array of Objects</h3>
+      <p>To iterate over an array of objects of the same type, use the standard <b>for...of</b> loop. To get property
+        values of each object, use <b>dot</b> notation, since the set of properties and their names are the same in each
+        object, only their values differ.</p>
     </section>
-
-
-
-
-
-
-
-
-
-
-
     <section class="destructuring">
       <a href=" #goit">
         <h2 id="destructuring">Destructuring and spread/rest (Lesson 6)</h2>
       </a>
+      <h3>Spread and Rest Syntax</h3>
+      <ul>
+        <li><b>...</b> (spread) <b>passing arguments</b> - to spread a collection of elements from array, string or
+          object to the places where a set of single values is expected;</li>
+        <li><b>...</b> (spread) <b>creating a new array</b> - to create a copy of an array or "bond" an arbitrary number
+          of arrays together to make a new one:<br>
+          <i>const copyOfArray = [<b>...</b>array]</i>;
+        </li>
+        <li><b>...</b> (spread) <b>creating a new object</b> - to spread the properties of an arbitrary number of
+          objects to a new one:<br>
+          <i>const third = {propertyName: value,</i> <b>...</b><i>first,</i> <b>...</b><i>second }</i>, it is possible
+          add properties to any location, spread order matters, object property names are unique, so the properties of
+          the sprayed object can overwrite the value of an existing property if their names are the same;
+        </li>
+        <li><b>...</b> (rest) <b>collecting all function arguments</b> - to collect a group of independent elements into
+          a new array;</li>
+        <li><b>...</b> (rest) <b>collecting part of function arguments</b> -to collect into an array only the required
+          part of the arguments:<br>
+          <i>function fnName(firstNumber, secondNumber,</i> <b>...</b><i>otherArgs)</i>;
+        </li>
+      </ul>
+      <h3>Object Destructuring</h3>
+      <p>Destructuring enables you to "unpack" the values of an object's properties into local variables, if the
+        variable and property names are the same, assignment takes place, otherwise it will be assigned undefined:<br>
+        <i><b>const {</b>propertyName1, propertyName2, propertyName3<b>}</b> = objectName</i>;
+      </p>
+      <ul>
+        <li><b>default values</b> to variables can be set to avoid assigning undefined when destructuring non-existent
+          properties of an object,they will be assigned only if the object does not have a property with that name.</li>
+        <li><i><b>const {</b>propertyName1<b>:</b> newPropertyName1, propertyName2<b>:</b> newPropertyName2<b>}</b> =
+            objectName</i> - <b>changing variable name</b>;</li>
+        <li><i>for (<b>const</b> book of books) {<b>const {</b>title, author, rating<b>}</b> = book;}</i> -
+          <b>destructuring in loop</b> body;
+        </li>
+        <li><i>for (<b>const {</b>title, author, rating<b>}</b> of books) {}</i> - <b>destructuring in loop</b> can be
+          done right where the variable book is declared;</li>
+        <li>
+          <i><b>const {</b>propertyName1, propertyName2<b>: {</b>nestedPropName1, nestedPropName2<b>}</b>,
+            propertyName3<b>}</b> = objectName - <b>deep destructuring</b> is for the properties of nested objects.</i>;
+        </li>
+      </ul>
+      <h3>Array Destructuring</h3>
+      <p>Destructuring assignment can be used for arrays as well: use square brackets <b>[]</b> instead of curly braces
+        <b>{}.</b>
+      </p>
+      <ul>
+        <li><i><b>const [</b>varName1, varName2, varName3<b>]</b> = arrayName</i> - creates variables with elements
+          placed in them in ascending order, from 0 to the array end;</li>
+        <li><i><b>let</b> varName1, varName2, varName3; <b>[</b>varName1, varName2, varName3<b>]</b> = arrayName</i> -
+          value can be assigned to a variable after arrays declaration;</li>
+        <li><i><b>const [</b>varName1, varName2, varName3 <b>= value]</b> = arrayName</i> - specifies default values;
+        </li>
+        <li><i><b>const [</b>varName, <b>...</b>restArrayName<b>]</b> = arrayName</i> - unpacks and assigns the rest of
+          the array elements to a variable;</li>
+        <li><i><b>const [, ,</b> varName<b>]</b> = arrayName</i> - skips elements.</li>
+      </ul>
+      <h3>«Parameter Object» Pattern</h3>
+      <p>If a function has more than two or three arguments, it is very easy to get confused about what is passed and in
+        which order. The <b>parameter object pattern</b> solves this problem by replacing a set of parameters with just
+        one, an object with named properties:</p>
+      <ul>
+        <li><i>function fnName(<b>objectName</b>) {\\Function body}</i>;</li>
+        <li><i>function fnName(objectName) {<b>const {</b>varName1, varName2<b>} =</b> objectName}</i> - destructure the
+          object in the <i>objectName</i> parameter;</li>
+        <li><i>function fnName(<b>{</b>varName1, varName2<b>}</b>)</i> - destructure the object in the <i>function
+            signature</i>.</li>
+      </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+    <section class="callbacks">
+      <a href=" #goit">
+        <h2 id="callbacks">Callbacks and Arrow Functions (Lesson 7)</h2>
+      </a>
     </section>
 
 
+
+
+
+
+
+
+
+
+    <section class="iterating">
+      <a href=" #goit">
+        <h2 id="iterating">Iterating Array Methods (Lesson 8)</h2>
+      </a>
+    </section>
 
 
 

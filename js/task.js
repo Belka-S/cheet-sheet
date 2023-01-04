@@ -1,4 +1,4 @@
-// -------------------- Variables and Types (Lesson 1) --------------------
+// '🍎'--------------------'🍎' Variables and Types (Lesson 1) '🍎'--------------------'🍎'
 
 // The six values ​​that are converted by Boolean() to `false`:
 // `0`, `NaN`, `null`, `undefined`, an empty string `""` or `''` and the value `false` itself.
@@ -220,7 +220,7 @@
 // const formatTimeMinutes = String(timeMinutes).padStart(2, '0');
 // console.log(`${formatTimeHour}:${formatTimeMinutes}`);
 
-// -------------------- Branches and Cycles (Lesson 2) --------------------
+// '🍎'--------------------'🍎' Branches and Cycles (Lesson 2) '🍎'--------------------'🍎'
 
 // -----------------------------------------------------------------------------
 // Використовуючи if..else та prompt, напиши код, який питатиме:
@@ -416,7 +416,7 @@
 // console.log(!'');
 // console.log(!0);
 
-// -------------------- Arrays (Lesson 3) --------------------
+// '🍎'--------------------'🍎' Arrays (Lesson 3) '🍎'--------------------'🍎'
 
 // ******************** Value and Reference ********************
 
@@ -597,7 +597,7 @@
 // const randomFruit = fruits[Math.floor(Math.random() * fruits.length)];
 // console.log(randomFruit);
 
-// -------------------- Functions (Lesson 4) --------------------
+// '🍎'--------------------'🍎' Functions (Lesson 4) '🍎'--------------------'🍎'
 
 // ******************** Function declaration ********************
 
@@ -948,9 +948,9 @@
 //   let strArray = string.toLowerCase().trim();
 //   strArray = strArray.split(' ');
 
-//   while (strArray.includes('')) {
-//     strArray.splice(strArray.indexOf(''), 1);
-//   }
+// while (strArray.includes('')) {
+//   strArray.splice(strArray.indexOf(''), 1);
+// }
 //   for (let index = 0; index < strArray.length; index += 1) {
 //     {
 //       const a = strArray[index].at(0).toUpperCase();
@@ -1017,24 +1017,104 @@
 //   console.log(normString);
 // }
 
-// -------------------- Objects (Lesson 5) --------------------
-// -------------------- Destructuring and spread/rest (Lesson 6) --------------------
-// -------------------- Callbacks and Arrow Functions (Lesson 7) --------------------
-// -------------------- Iterating Array Methods (Lesson 8) --------------------
-// -------------------- The keyword this (Lesson 9) --------------------
-// -------------------- Prototypes and Classes (Lesson 10) --------------------
-// -------------------- Destructuring and spread/rest (Lesson 11) --------------------
-// -------------------- Callbacks and Arrow Functions (Lesson 12) --------------------
-// -------------------- Event Delegation (Lesson 13) --------------------
-// -------------------- Throttle/Debounce and Lazyload (Lesson 14) --------------------
-// -------------------- Code Modularity (Lesson 15) --------------------
-// -------------------- Web Storage (Lesson 16) --------------------
-// -------------------- Timers and Time (Lesson 17) --------------------
-// -------------------- Promises (Lesson 18) --------------------
-// -------------------- HTTP Requests (Lesson 19) --------------------
-// -------------------- Pagination (Lesson 20) --------------------
-// -------------------- CRUD (Lesson 21) --------------------
-// -------------------- Syntax async/await (Lesson 22) --------------------
+// '🍎'--------------------'🍎' Objects (Lesson 5) '🍎'--------------------'🍎'
+
+// ******************** Iteration ********************
+
+// const animal = {
+//   legs: 4,
+// };
+// const dog = Object.create(animal);
+// dog.name = 'Mango';
+
+// for (const key in dog) {
+//   console.log(key);
+//   console.log(dog[key]);
+// }
+// console.log('********************');
+// for (const key in dog) {
+//   if (Object.hasOwnProperty(key)) {
+//     console.log(key);
+//     console.log(dog[key]);
+//   }
+// }
+// console.log('********************');
+// const keys = Object.keys(dog);
+// for (const key of keys) {
+//   console.log(key);
+//   console.log(dog[key]);
+// }
+// console.log('********************');
+// const values = Object.values(dog);
+// console.log('keys: ', keys);
+// console.log('values: ', values);
+// console.log('********************');
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+// '🍎'--------------------'🍎' Destructuring and spread/rest (Lesson 6) '🍎'--------------------'🍎'
+
+// ******************** Object Destructuring ********************
+
+// const book = {
+//   title: 'The Last Kingdom',
+//   author: 'Bernard Cornwell',
+//   genres: ['historical prose', 'adventure'],
+//   isPublic: true,
+//   rating: 8.38,
+// };
+
+// const { title, author, isPublic, rating, coverImage } = book; // Destructuring
+// console.log('title: ', title);
+// console.log('author: ', author);
+// console.log('isPublic: ', isPublic);
+// console.log('rating: ', rating);
+// console.log('coverImage: ', coverImage); // undefined
+// -----------------------------------------------------------------------------
+
+//
+//
+//
+//
+//
+//
+//
+//
+
+// '🍎'--------------------'🍎' Callbacks and Arrow Functions (Lesson 7) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' Iterating Array Methods (Lesson 8) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' The keyword this (Lesson 9) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' Prototypes and Classes (Lesson 10) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' Destructuring and spread/rest (Lesson 11) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' Callbacks and Arrow Functions (Lesson 12) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' Event Delegation (Lesson 13) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' Throttle/Debounce and Lazyload (Lesson 14) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' Code Modularity (Lesson 15) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' Web Storage (Lesson 16) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' Timers and Time (Lesson 17) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' Promises (Lesson 18) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' HTTP Requests (Lesson 19) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' Pagination (Lesson 20) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' CRUD (Lesson 21) '🍎'--------------------'🍎'
+// '🍎'--------------------'🍎' Syntax async/await (Lesson 22) '🍎'--------------------'🍎'
 
 // ******************** Питання ********************
 
