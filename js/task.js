@@ -850,7 +850,7 @@
 // -----------------------------------------------------------------------------
 // let max = 0;
 // let min = 0;
-// while (max <= min || Boolean(max) === false || Boolean(min) === false) {
+// while (max <= min || !Boolean(max) || !Boolean(min)) {
 //   max = Number.parseInt(prompt('Input MAX number'));
 //   min = Number.parseInt(prompt('Input MIN number'));
 // }
@@ -1026,6 +1026,7 @@
 // };
 // const dog = Object.create(animal);
 // dog.name = 'Mango';
+// dog.color = 'black';
 
 // for (const key in dog) {
 //   console.log(key);
@@ -1040,15 +1041,233 @@
 // }
 // console.log('********************');
 // const keys = Object.keys(dog);
-// for (const key of keys) {
-//   console.log(key);
-//   console.log(dog[key]);
+// for (const key of Object.keys(dog)) {
+//   console.log('key: ', key);
+//   console.log('value: ', dog[key]);
 // }
 // console.log('********************');
-// const values = Object.values(dog);
-// console.log('keys: ', keys);
-// console.log('values: ', values);
-// console.log('********************');
+// for (const value of Object.values(dog)) {
+//   console.log('value: ', value);
+// }
+// -----------------------------------------------------------------------------
+// const basketBalls = [
+//   { brand: 'Wilson', price: 65 },
+//   { brand: 'Spalding', price: 100 },
+//   { brand: 'Nike', price: 75 },
+//   { brand: 'The Rock', price: 50 },
+// ];
+
+// getBrands(basketBalls);
+// function getBrands(balls) {
+//   const brands = [];
+//   for (const ball of balls) {
+//     brands.push(ball.brand);
+//     ball.amazon = true;
+//   }
+//   console.log('brands: ', brands);
+// }
+// basketBalls[1].amazon = false;
+// basketBalls[3].amazon = false;
+// console.table(basketBalls);
+
+// canBuyOnAmazon(basketBalls);
+// function canBuyOnAmazon(balls) {
+//   const available = {
+//     amazon: [],
+//     denied: [],
+//   };
+//   for (const ball of balls) {
+//     if (ball.amazon) {
+//       available.amazon.push(ball.brand);
+//     } else {
+//       available.denied.push(ball.brand);
+//     }
+//   }
+//   console.table(available);
+// }
+// // ******************** //
+// Find basketball by brand
+// findBallByBrand('Nike', basketBalls);
+
+// function findBallByBrand(brandName, basketBalls) {
+//   let message = 'No ball to find';
+//   for (const ball of basketBalls) {
+//     if (ball['brand'] === brandName) {
+//       console.log(`Basketball ${ball['brand']} costs ${ball['price']}$`);
+//     }
+//     if (ball.brand === brandName) {
+//       message = `You can buy ${ball.brand} basketball for ${ball.price}$`;
+//     }
+//   }
+//   return console.log(message);
+// }
+// -----------------------------------------------------------------------------
+//            ******************** Depeche Mode ********************
+// -----------------------------------------------------------------------------
+// const album = {
+//   band: 'Depeche Mode',
+//   name: 'Violator',
+//   year: 1990,
+//   trackCount: 9,
+//   track: [
+//     'World in My Eyes',
+//     'Sweetest Perfection',
+//     'Personal Jesus',
+//     'Halo',
+//     'Waiting for the Night',
+//     'Enjoy the Silence',
+//     'Policy of Truth',
+//     'Blue Dress',
+//     'Clean',
+//   ],
+//   rating: 8,
+//   changeRating(newRating) {
+//     this.rating = newRating;
+//   },
+//   trackTotal() {
+//     console.log('total tracks: ', this.track.length);
+//   },
+//   addTrack(trackNumber, trackName) {
+//     this.track.splice(trackNumber, 0, trackName);
+//   },
+//   trackList() {
+//     for (const track of this.track) {
+//       console.log(
+//         `${String(this.track.indexOf(track) + 1).padStart(2, 0)} - ${track}`
+//       );
+//     }
+//   },
+// };
+// console.log('album: ', album);
+// album.addTrack(6, 'Interlude #2 Crucified');
+// album.addTrack(9, 'Interlude #3');
+// album.trackList();
+// album.genre = 'electronic';
+// album.changeRating(10);
+// console.log('rating: ', album.rating);
+// delete album.trackCount;
+// console.log('trackCount: ', album.trackCount);
+// album.trackTotal();
+// // // ******************** //
+// console.log('keys: ', Object.keys(album));
+// for (const key of Object.keys(album)) {
+//   console.log(`${key}: ${album[key]}`);
+// }
+// // ******************** //
+// console.log('track: ', album['track']);
+// const propertyKey = 'track';
+// console.log('track: ', album[propertyKey]);
+// console.table(Object.entries(album));
+// -----------------------------------------------------------------------------
+// const userName = 'Valera';
+// const email = 'valera@gmail.com';
+// const userData = { userName, email };
+// console.log('userData: ', userData);
+// -----------------------------------------------------------------------------
+// // <input name = "color" value = "green">
+// const inputName = 'color';
+// const inpunValue = 'green';
+// const inputData = { [inputName]: inpunValue };
+// console.log('inputData: ', inputData);
+// -----------------------------------------------------------------------------
+// const objectArray = [1, 2, 3];
+// objectArray.propertyKey = 'value';
+// console.log('objectArray: ', objectArray);
+// -----------------------------------------------------------------------------
+// function normString(string) {
+//   let strArray = string.trim().toLowerCase().split(/\s+/);
+
+//   for (let i = 0; i < strArray.length; i += 1) {
+//     strArray[i] = strArray[i].at(0).toUpperCase() + strArray[i].substring(1);
+//   }
+//   const normString = strArray.join(' ');
+// }
+// normString.propertyKey = 'value';
+// console.dir(normString);
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+const cart = {
+  items: [],
+  countTotalSumm() {
+    let totalSumm = 0;
+    for (let i = 0; i < this.items.length; i += 1) {
+      totalSumm += this.items[i].price * this.items[i].quantity;
+    }
+    console.log(`total Summ = ${totalSumm}$`);
+    console.log('-----------------');
+  },
+  getItems() {
+    console.table(this.items);
+    this.countTotalSumm();
+  },
+  add(product) {
+    product.quantity = 1; \\ додавати в корзину новий обєкт в якого додоана кількість
+    this.items.push(product);
+    console.log(
+      `${product.quantity} ${product.productName} for ${product.price}$ is added`
+    );
+  },
+  remove(productName) {
+    for (let i = 0; i < this.items.length; i += 1) {
+      if (this.items[i].productName === productName) {
+        console.log(
+          `${this.items[i].quantity} ${productName} for ${this.items[i].price}$ is removed`
+        );
+        this.items.splice(i, 1);
+      }
+    }
+  },
+  clear() {
+    this.items = [];
+    console.log('Cart is empty!');
+  },
+  increaseQuantity(productName) {
+    for (let i = 0; i < this.items.length; i += 1) {
+      if (this.items[i].productName === productName) {
+        console.log(
+          `1 ${this.items[i].productName} for ${this.items[i].price}$ is added`
+        );
+        this.items[i].quantity += 1;
+      }
+    }
+  },
+  decreaseQuantity(productName) {
+    for (let i = 0; i < this.items.length; i += 1) {
+      if (this.items[i].productName === productName) {
+        if (this.items[i].quantity === 1) {
+          this.remove(productName);
+        } else {
+          console.log(
+            `1 ${this.items[i].productName} for ${this.items[i].price}$ is removed`
+          );
+          this.items[i].quantity -= 1;
+        }
+      }
+    }
+  },
+};
+cart.add({ productName: 'Nike', price: 75 });
+cart.add({ productName: 'Spalding', price: 100 });
+cart.add({ productName: 'Spalding', price: 100 });
+cart.add({ productName: 'Wilson', price: 65 });
+cart.add({ productName: 'The Rock', price: 50 });
+cart.increaseQuantity('Spalding');
+cart.getItems();
+cart.remove('Spalding');
+cart.getItems();
+cart.clear();
+cart.add({ productName: 'Wilson', price: 65 });
+cart.add({ productName: 'Nike', price: 75 });
+cart.add({ productName: 'The Rock', price: 50 });
+cart.getItems();
+cart.increaseQuantity('Nike');
+cart.increaseQuantity('Nike');
+cart.getItems();
+cart.decreaseQuantity('Nike');
+cart.decreaseQuantity('Wilson');
+cart.getItems();
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 //
 //
@@ -1082,14 +1301,69 @@
 //   rating: 8.38,
 // };
 
-// const { title, author, isPublic, rating, coverImage } = book; // Destructuring
+// const { title, author, genres, isPublic, rating, coverImage } = book; // Destructuring
 // console.log('title: ', title);
 // console.log('author: ', author);
+// console.log('genres: ', genres);
 // console.log('isPublic: ', isPublic);
 // console.log('rating: ', rating);
 // console.log('coverImage: ', coverImage); // undefined
-// -----------------------------------------------------------------------------
 
+// ******************** Spread and Rest Syntax ********************
+
+// const numbers = [2, 3, ...[10, 20, 30], 7, 8, 9];
+// console.log('numbers: ', numbers);
+
+// const a = [{ a: 1 }, { b: 2 }, { c: 3 }];
+// const b = [...a];
+// console.table(b);
+// console.log(a === b);
+// console.log(a[0] === b[0]);
+
+// ******************** Array Destructuring ********************
+
+// const basketBalls = {
+//   Wilson: 65,
+//   Spalding: 100,
+//   Nike: 75,
+//   The_Rock: 50,
+// };
+// for (const [brand, price] of Object.entries(basketBalls)) {
+//   console.log('brand: ', brand, '/ price =', price, '$');
+// }
+
+// ******************** «Parameter Object» Pattern ********************
+// function deliveryDay({ name, choice = 'warehouse', good }) {
+//   let message = name;
+//   switch (choice) {
+//     case 'office':
+//       message += ', завтра з офісу заберіть ' + good;
+//       break;
+//     case 'post':
+//       message += ', сьогодні поштою заберіть ' + good;
+//       break;
+//     case 'warehouse':
+//       message += ', в зручний час зі складу заберіть ' + good;
+//       break;
+//     default:
+//       message += ', не то ввели';
+//   }
+//   console.log(message);
+// }
+// const userProfile = {
+//   name: 'Сергій',
+//   choice: 'post',
+//   type: 'postpay',
+//   good: 'HDD',
+// };
+// const defaultProfile = {
+//   name: 'Шановний клієнт',
+//   type: 'prepay',
+//   good: 'товар',
+// };
+// deliveryDay(defaultProfile);
+// deliveryDay(userProfile);
+// -----------------------------------------------------------------------------
 //
 //
 //
@@ -1127,7 +1401,7 @@
 // console.log(5 > '9'); // false
 // console.log('2' > '12'); // true.
 // -----------------------------------------------------------------------------
-// while (max <= min || Boolean(max) === false || Boolean(min) === false)
+// while (max <= min || !Boolean(max) || !Boolean(min))
 // ********************
 // let max = 0;
 // let min = 0;
