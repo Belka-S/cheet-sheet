@@ -1019,6 +1019,32 @@
 
 // '🍎'--------------------'🍎' Objects (Lesson 5) '🍎'--------------------'🍎'
 
+// ******************** Object properties and methods ********************
+
+// const bookShelf = {
+//   books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+//   updateBook(oldName, newName) {
+//     for (let i = 0; i < this.books.length; i += 1) {
+//       if (this.books[i] === oldName) {
+//         this.books.splice(i, 1, newName);
+//       }
+//     }
+//   },
+// };
+// const bookShelf = {
+//   books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+//   updateBook(oldName, newName) {
+//     for (const book of this.books) {
+//       if (book === oldName) {
+//         this.books.splice(this.books.indexOf(book), 1, newName);
+//       }
+//     }
+//   },
+// };
+
+// bookShelf.updateBook('Haze', 'Dungeon chronicles');
+// console.log(bookShelf.books);
+
 // ******************** Iteration ********************
 
 // const animal = {
@@ -1102,63 +1128,6 @@
 //   return console.log(message);
 // }
 // -----------------------------------------------------------------------------
-//            ******************** Depeche Mode ********************
-// -----------------------------------------------------------------------------
-// const album = {
-//   band: 'Depeche Mode',
-//   name: 'Violator',
-//   year: 1990,
-//   trackCount: 9,
-//   track: [
-//     'World in My Eyes',
-//     'Sweetest Perfection',
-//     'Personal Jesus',
-//     'Halo',
-//     'Waiting for the Night',
-//     'Enjoy the Silence',
-//     'Policy of Truth',
-//     'Blue Dress',
-//     'Clean',
-//   ],
-//   rating: 8,
-//   changeRating(newRating) {
-//     this.rating = newRating;
-//   },
-//   trackTotal() {
-//     console.log('total tracks: ', this.track.length);
-//   },
-//   addTrack(trackNumber, trackName) {
-//     this.track.splice(trackNumber, 0, trackName);
-//   },
-//   trackList() {
-//     for (const track of this.track) {
-//       console.log(
-//         `${String(this.track.indexOf(track) + 1).padStart(2, 0)} - ${track}`
-//       );
-//     }
-//   },
-// };
-// console.log('album: ', album);
-// album.addTrack(6, 'Interlude #2 Crucified');
-// album.addTrack(9, 'Interlude #3');
-// album.trackList();
-// album.genre = 'electronic';
-// album.changeRating(10);
-// console.log('rating: ', album.rating);
-// delete album.trackCount;
-// console.log('trackCount: ', album.trackCount);
-// album.trackTotal();
-// // // ******************** //
-// console.log('keys: ', Object.keys(album));
-// for (const key of Object.keys(album)) {
-//   console.log(`${key}: ${album[key]}`);
-// }
-// // ******************** //
-// console.log('track: ', album['track']);
-// const propertyKey = 'track';
-// console.log('track: ', album[propertyKey]);
-// console.table(Object.entries(album));
-// -----------------------------------------------------------------------------
 // const userName = 'Valera';
 // const email = 'valera@gmail.com';
 // const userData = { userName, email };
@@ -1185,105 +1154,7 @@
 // normString.propertyKey = 'value';
 // console.dir(normString);
 // -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
-const cart = {
-  items: [],
-  countTotalSumm() {
-    let totalSumm = 0;
-    for (let i = 0; i < this.items.length; i += 1) {
-      totalSumm += this.items[i].price * this.items[i].quantity;
-    }
-    console.log(`total Summ = ${totalSumm}$`);
-    console.log('-----------------');
-  },
-  getItems() {
-    console.table(this.items);
-    this.countTotalSumm();
-  },
-  add(product) {
-    product.quantity = 1; \\ додавати в корзину новий обєкт в якого додоана кількість
-    this.items.push(product);
-    console.log(
-      `${product.quantity} ${product.productName} for ${product.price}$ is added`
-    );
-  },
-  remove(productName) {
-    for (let i = 0; i < this.items.length; i += 1) {
-      if (this.items[i].productName === productName) {
-        console.log(
-          `${this.items[i].quantity} ${productName} for ${this.items[i].price}$ is removed`
-        );
-        this.items.splice(i, 1);
-      }
-    }
-  },
-  clear() {
-    this.items = [];
-    console.log('Cart is empty!');
-  },
-  increaseQuantity(productName) {
-    for (let i = 0; i < this.items.length; i += 1) {
-      if (this.items[i].productName === productName) {
-        console.log(
-          `1 ${this.items[i].productName} for ${this.items[i].price}$ is added`
-        );
-        this.items[i].quantity += 1;
-      }
-    }
-  },
-  decreaseQuantity(productName) {
-    for (let i = 0; i < this.items.length; i += 1) {
-      if (this.items[i].productName === productName) {
-        if (this.items[i].quantity === 1) {
-          this.remove(productName);
-        } else {
-          console.log(
-            `1 ${this.items[i].productName} for ${this.items[i].price}$ is removed`
-          );
-          this.items[i].quantity -= 1;
-        }
-      }
-    }
-  },
-};
-cart.add({ productName: 'Nike', price: 75 });
-cart.add({ productName: 'Spalding', price: 100 });
-cart.add({ productName: 'Spalding', price: 100 });
-cart.add({ productName: 'Wilson', price: 65 });
-cart.add({ productName: 'The Rock', price: 50 });
-cart.increaseQuantity('Spalding');
-cart.getItems();
-cart.remove('Spalding');
-cart.getItems();
-cart.clear();
-cart.add({ productName: 'Wilson', price: 65 });
-cart.add({ productName: 'Nike', price: 75 });
-cart.add({ productName: 'The Rock', price: 50 });
-cart.getItems();
-cart.increaseQuantity('Nike');
-cart.increaseQuantity('Nike');
-cart.getItems();
-cart.decreaseQuantity('Nike');
-cart.decreaseQuantity('Wilson');
-cart.getItems();
-// -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -1308,6 +1179,50 @@ cart.getItems();
 // console.log('isPublic: ', isPublic);
 // console.log('rating: ', rating);
 // console.log('coverImage: ', coverImage); // undefined
+// -----------------------------------------------------------------------------
+// const highTemperatures = {
+//   yesterday: 28,
+//   today: 26,
+//   tomorrow: 33,
+// };
+// const { yesterday, today, tomorrow } = highTemperatures;
+// const meanTemperature = (yesterday + today + tomorrow) / 3;
+// -----------------------------------------------------------------------------
+// const colors = [
+//   { hex: '#f44336', rgb: '244,67,54' },
+//   { hex: '#2196f3', rgb: '33,150,243' },
+//   { hex: '#4caf50', rgb: '76,175,80' },
+//   { hex: '#ffeb3b', rgb: '255,235,59' },
+// ];
+
+// const hexColors = [];
+// const rgbColors = [];
+// for (const { hex, rgb } of colors) {
+//   hexColors.push(hex);
+//   rgbColors.push(rgb);
+// }
+// -----------------------------------------------------------------------------
+// const user = {
+//   name: 'Jacques Gluke',
+//   tag: 'jgluke',
+//   stats: {
+//     followers: 5603,
+//     views: 4827,
+//     likes: 1308,
+//   },
+// };
+// const {
+//   name,
+//   tag,
+//   stats: { followers, views: userViews, likes: userLikes = 0 },
+// } = user;
+
+// console.log(name); // Jacques Gluke
+// console.log(tag); // jgluke
+// console.log(followers); // 5603
+// console.log(userViews); // 4827
+// console.log(userLikes); // 1308
+// -----------------------------------------------------------------------------
 
 // ******************** Spread and Rest Syntax ********************
 
@@ -1319,9 +1234,34 @@ cart.getItems();
 // console.table(b);
 // console.log(a === b);
 // console.log(a[0] === b[0]);
+// -----------------------------------------------------------------------------
+// const defaultSettings = {
+//   theme: 'light',
+//   public: true,
+//   withPassword: false,
+//   minNumberOfQuestions: 10,
+//   timePerQuestion: 60,
+// };
+// const overrideSettings = {
+//   public: false,
+//   withPassword: true,
+//   timePerQuestion: 30,
+// };
+// // Change code below this line
+// const finalSettings = { ...defaultSettings, ...overrideSettings };
 
-// ******************** Array Destructuring ********************
+// ******************** Destructuring ********************
 
+// const atTheOldToad = {
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+//   addPotion(potionName) {
+//     const { potions } = atTheOldToad;
+//     potions.push(potionName);
+//   },
+// };
+// atTheOldToad.addPotion('Power potion');
+// console.log(atTheOldToad.potions);
+// -----------------------------------------------------------------------------
 // const basketBalls = {
 //   Wilson: 65,
 //   Spalding: 100,
@@ -1364,7 +1304,7 @@ cart.getItems();
 // deliveryDay(defaultProfile);
 // deliveryDay(userProfile);
 // -----------------------------------------------------------------------------
-//
+
 //
 //
 //
@@ -1400,26 +1340,6 @@ cart.getItems();
 // console.log(8 >= '7'); // true.
 // console.log(5 > '9'); // false
 // console.log('2' > '12'); // true.
-// -----------------------------------------------------------------------------
-// while (max <= min || !Boolean(max) || !Boolean(min))
-// ********************
-// let max = 0;
-// let min = 0;
-// while (max <= min || max === NaN || min === NaN) {
-// max = Number.parseInt(prompt('Input MAX number'));
-// min = Number.parseInt(prompt('Input MIN number'));
-// }
-// console.log('min =', min);
-// console.log('max =', max);
-// const random = (Math.random() * (max - min) + min).toFixed(2);
-// console.log('random =', random);
-// -----------------------------------------------------------------------------
-// The six values ​​that are converted by Boolean() to `false`:
-// `0`, `NaN`, `null`, `undefined`, an empty string `""` or `''` and the value `false` itself.
-// Everything else is converted to`true`.
-
-// console.log('Boolean(''): ', Boolean());
-
 // -----------------------------------------------------------------------------
 //  .split(/\s+/)
 // -----------------------------------------------------------------------------
