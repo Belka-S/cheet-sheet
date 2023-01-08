@@ -2,74 +2,83 @@
 
 const album = {
   band: 'Depeche Mode',
-  title: 'Violator',
+  title: 'viOLator',
   year: 1990,
   genre: 'electronic',
   rating: 8,
-  track: [
-    'World in My Eyes',
+  tracks: [
+    'World In my eyes',
     'Sweetest Perfection',
     'Personal Jesus',
     'Halo',
-    'Waiting for the Night',
+    'Waiting FOR the night',
     'Enjoy the Silence',
     'Policy of Truth',
     'Blue Dress',
     'Clean',
   ],
 
-  normalize(data) {
-    const lowerCase = ['and', 'in', 'of', 'the'];
-    if (typeof data === 'string') {
-      const stringToArray = data.trim().toLowerCase().split(/\s+/);
+  normalize(string) {
+    const lowerCase = ['and', 'for', 'in', 'of', 'the', 'with'];
 
-      for (let i = 0; i < stringToArray.length; i += 1) {
-        const upper =
-          stringToArray[i].at(0).toUpperCase() + stringToArray[i].substring(1);
-        stringToArray.splice(i, 1, upper);
-
-        for (const word of lowerCase) {
-          if (stringToArray[i].toLocaleLowerCase() === word) {
-            const lower = stringToArray[i].toLocaleLowerCase();
-            stringToArray.splice(i, 1, lower);
+    const normalArray = string.trim().toLowerCase().split(/\s+/);
+    for (const word of normalArray) {
+      let normalWord = word.at(0).toUpperCase() + word.substring(1);
+      if (normalArray.indexOf(word) > 0) {
+        for (const lower of lowerCase) {
+          if (lower === word) {
+            normalWord = lower;
+            break;
           }
         }
       }
-      const normalString = stringToArray.join(' ');
-      console.log(normalString);
+      normalArray.splice(normalArray.indexOf(word), 1, normalWord);
+    }
+    return normalArray.join(' ');
+  },
+
+  normalizeAlbum() {
+    this.title = this.normalize(this.title);
+
+    const tracks = [...this.tracks];
+    for (const track of tracks) {
+      this.tracks.splice(tracks.indexOf(track), 1, this.normalize(track));
     }
   },
-  trackList() {
-    for (const track of this.track) {
-      console.log(
-        `${String(this.track.indexOf(track) + 1).padStart(2, 0)} - ${track}`
-      );
-    }
-  },
+
   albumInfo() {
     const { band, title, year, genre, rating, track } = album;
-    console.log('-------------------');
     console.log('Band:', band);
+    console.log('Year: ', year);
     console.log('Title: ', title);
     console.log('Genre: ', genre);
     console.log('Rating: ', rating);
-    console.log('Tracks:', track.length);
+    console.log('Tracks:');
+    this.trackList();
   },
+
   addTrack(trackNumber, tracktitle) {
-    this.track.splice(trackNumber, 0, tracktitle);
+    this.tracks.splice(trackNumber, 0, tracktitle);
   },
+
   changeRating(newRating) {
     this.rating = newRating;
+  },
+
+  trackList() {
+    for (const track of this.tracks) {
+      console.log(
+        `${String(this.tracks.indexOf(track) + 1).padStart(2, 0)} - ${track}`
+      );
+    }
   },
 };
 // -----------------------------------------------------------------------------
 
 // album.addTrack(6, 'Interlude #2 Crucified');
 // album.addTrack(9, 'Interlude #3');
-// album.trackList();
 // album.changeRating(10);
+// album.normalizeAlbum();
 // album.albumInfo();
-
-// console.table(Object.entries(album));
-
-album.normalize('songs of  faith And  devotion');
+// console.log('-----------------------');
+// console.log(album.normalize('songs OF faith AND deVOtion'));
