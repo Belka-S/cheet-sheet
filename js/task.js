@@ -1024,6 +1024,16 @@
 // const bookShelf = {
 //   books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
 //   updateBook(oldName, newName) {
+//     this.books.splice(this.books.indexOf(oldName), 1, newName);
+//   },
+// };
+
+// bookShelf.updateBook('Haze', 'Dungeon chronicles');
+// console.log(bookShelf.books);
+// -----------------------------------------------------------------------------
+// const bookShelf1 = {
+//   books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+//   updateBook(oldName, newName) {
 //     for (let i = 0; i < this.books.length; i += 1) {
 //       if (this.books[i] === oldName) {
 //         this.books.splice(i, 1, newName);
@@ -1031,7 +1041,11 @@
 //     }
 //   },
 // };
-// const bookShelf = {
+
+// bookShelf1.updateBook('Haze', 'Dungeon chronicles');
+// console.log(bookShelf1.books);
+// -----------------------------------------------------------------------------
+// const bookShelf2 = {
 //   books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
 //   updateBook(oldName, newName) {
 //     for (const book of this.books) {
@@ -1042,8 +1056,8 @@
 //   },
 // };
 
-// bookShelf.updateBook('Haze', 'Dungeon chronicles');
-// console.log(bookShelf.books);
+// bookShelf2.updateBook('Haze', 'Dungeon chronicles');
+// console.log(bookShelf2.books);
 
 // ******************** Iteration ********************
 
@@ -1271,6 +1285,47 @@
 // for (const [brand, price] of Object.entries(basketBalls)) {
 //   console.log('brand: ', brand, '/ price =', price, '$');
 // }
+// -----------------------------------------------------------------------------
+// const highTemperatures = {
+//   yesterday: 28,
+//   today: 26,
+//   tomorrow: 33,
+// };
+// const {
+//   yesterday: highYesterday,
+//   today: highToday,
+//   tomorrow: highTomorrow,
+//   icon: highIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+// } = highTemperatures;
+
+// // Change code above this line
+// const meanTemperature = (highYesterday + highToday + highTomorrow) / 3;
+// -----------------------------------------------------------------------------
+// const forecast = {
+//   today: {
+//     low: 28,
+//     high: 32,
+//     icon: 'https://www.flaticon.com/svg/static/icons/svg/861/861059.svg',
+//   },
+//   tomorrow: {
+//     low: 27,
+//     high: 31,
+//   },
+// };
+
+// const {
+//   today: {
+//     high: highToday,
+//     low: lowToday,
+//     icon: todayIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+//   },
+//   tomorrow: {
+//     high: highTomorrow,
+//     low: lowTomorrow,
+//     icon: tomorrowIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+//   },
+// } = forecast;
+// -----------------------------------------------------------------------------
 
 // ******************** «Parameter Object» Pattern ********************
 // function deliveryDay({ name, choice = 'warehouse', good }) {
@@ -1335,11 +1390,40 @@
 // Яким буде результат виразів? String порівнюються посимвольно по коду символа.
 // При порівнянні з числом відбувається перетворення на число.
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt
-// -----------------------------------------------------------------------------
+
 // console.log(5 > 4); // true
 // console.log(8 >= '7'); // true.
-// console.log(5 > '9'); // false
-// console.log('2' > '12'); // true.
+// console.log(5 > '9'); // false  - чому?
+// console.log('2' > '12'); // true. - чому?
 // -----------------------------------------------------------------------------
-//  .split(/\s+/)
+//  .split(/\s+/) - що це за синтаксис?
 // -----------------------------------------------------------------------------
+//оператор return, він тут не потрібен, але чому в автоперевірці не приймало код без нього, помилка?
+
+// const bookShelf = {
+//   books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+//   updateBook(oldName, newName) {
+//     this.books.splice(this.books.indexOf(oldName), 1, newName);
+//   },
+// };
+// bookShelf.updateBook('Haze', 'Dungeon chronicles');
+// console.log(bookShelf.books);
+// ****************************************
+// const bookShelf1 = {
+//   books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+//   updateBook(oldName, newName) {
+//     for (let i = 0; i < this.books.length; i += 1) {
+//       if (this.books[i] === oldName) {
+//         this.books.splice(i, 1, newName);
+//       }
+//     }
+//   },
+// };
+
+// bookShelf1.updateBook('Haze', 'Dungeon chronicles');
+// console.log(bookShelf1.books);
+// -----------------------------------------------------------------------------
+// return (item.quantity += 1);
+// дорівнює ???????
+// item.quantity += 1;
+// return;
