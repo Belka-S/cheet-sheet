@@ -1034,6 +1034,16 @@
 
 // '🍎'--------------------'🍎' Objects (Lesson 5) '🍎'--------------------'🍎'
 
+// ******************** Object creation ********************
+
+// function Car(make, model, year) {
+//   this.make = make;
+//   this.model = model;
+//   this.year = year;
+// }
+// const mycar = new Car('Eagle', 'Talon TSi', 1993);
+// console.log('mycar: ', mycar);
+
 // ******************** Object properties and methods ********************
 
 // const bookShelf = {
@@ -1384,6 +1394,112 @@
 //
 
 // '🍎'--------------------'🍎' Callbacks and Arrow Functions (Lesson 7) '🍎'--------------------'🍎'
+
+// ******************** Callbacks ********************
+
+// function greet(name) {
+//   console.log(`Welcome ${name}.`);
+// }
+// function bye(name) {
+//   console.log(`Googbye ${name}.`);
+// }
+// function registerGuest(name, callback) {
+//   console.log(`Registering guest ${name}.`);
+//   callback(name);
+// }
+// registerGuest('Mango', greet);
+// registerGuest('Mango', bye);
+
+// ******************** Inline callbacks ********************
+
+// function registerGuest(name, callback) {
+//   console.log(`Registering guest ${name}.`);
+//   callback(name);
+// }
+// // Passing the greet inline function as a callback
+// registerGuest('Mango', function greet(name) {
+//   console.log(`Welcome ${name}.`);
+// });
+
+// ******************** Several callbacks ********************
+
+// function processCall(recipient, onAvailable, onNotAvailable) {
+//   // Simulating the subscriber’s availability with a random number
+//   const isRecipientAvailable = Math.random() > 0.5;
+//   if (!isRecipientAvailable) {
+//     onNotAvailable(recipient);
+//     return;
+//   }
+//   onAvailable(recipient);
+// }
+// //  // Call handling logic
+// function takeCall(name) {
+//   console.log(`Connecting you to ${name}, please wait...`);
+// }
+// //  // Answering machine activation logic
+// function activateAnsweringMachine(name) {
+//   console.log(
+//     `The subscriber ${name} is not available, please leave a message.`
+//   );
+// }
+// //  // Hologram record logic
+// function leaveHoloMessage(name) {
+//   console.log(`The subscriber ${name} is not available, recording a hologram.`);
+// }
+// processCall('Mango', takeCall, activateAnsweringMachine);
+// processCall('Poly', takeCall, leaveHoloMessage);
+
+// ******************** Repetition abstraction ********************
+
+// function printValue(value) {
+//   console.log(value);
+// }
+// function prettyPrint(value) {
+//   console.log('Logging value: ', value);
+// }
+// function repeat(n, action) {
+//   for (let i = 0; i < n; i += 1) {
+//     action(i);
+//   }
+// }
+// repeat(3, printValue);
+// repeat(3, prettyPrint);
+
+// ******************** .forEach ********************
+
+// const numbers = [5, 10, 15, 20, 25];
+// numbers.forEach(function (element, index, array) {
+//   console.log(`Index ${index}, value ${element}, array ${array}`);
+// });
+
+// ******************** Arrow Functions ********************
+
+// const numbers = [1, 2, 3, 4, 5];
+// const filteredNumbers = numbers.filter(value => value > 3);
+// console.log(filteredNumbers);
+// -----------------------------------------------------------------------------
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 // '🍎'--------------------'🍎' Iterating Array Methods (Lesson 8) '🍎'--------------------'🍎'
 // '🍎'--------------------'🍎' The keyword this (Lesson 9) '🍎'--------------------'🍎'
 // '🍎'--------------------'🍎' Prototypes and Classes (Lesson 10) '🍎'--------------------'🍎'
@@ -1443,4 +1559,6 @@
 // item.quantity += 1;
 // return;
 // -----------------------------------------------------------------------------
-
+// прикладні додатковізадачі.
+// -----------------------------------------------------------------------------
+//
