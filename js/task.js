@@ -478,6 +478,30 @@
 //   }
 // }
 // console.log(maxNumber);
+// -----------------------------------------------------------------------------
+// // ******************** Array whith non-number indexes ********************
+// const tags = [
+//   'js',
+//   'nodejs',
+//   'html',
+//   'css',
+//   'html',
+//   'js',
+//   'nodejs',
+//   'react',
+//   'js',
+//   'nodejs',
+//   'react',
+//   'js',
+// ];
+// const countTags = tags.reduce((acc, tag) => {
+//   if (typeof acc[tag] !== 'number') {
+//     acc[tag] = 0;
+//   }
+//   acc[tag] += 1;
+//   return acc;
+// }, []);
+// console.table(countTags);
 
 // ******************** Array Methods ********************
 
@@ -1405,7 +1429,7 @@
 // }
 // function registerGuest(name, callback) {
 //   console.log(`Registering guest ${name}.`);
-//   callback(name);
+//   // callback(name);
 // }
 // registerGuest('Mango', greet);
 // registerGuest('Mango', bye);
@@ -1465,13 +1489,6 @@
 // repeat(3, printValue);
 // repeat(3, prettyPrint);
 
-// ******************** .forEach ********************
-
-// const numbers = [5, 10, 15, 20, 25];
-// numbers.forEach(function (element, index, array) {
-//   console.log(`Index ${index}, value ${element}, array ${array}`);
-// });
-
 // ******************** Arrow Functions ********************
 
 // const numbers = [1, 2, 3, 4, 5];
@@ -1492,6 +1509,201 @@
 //
 //
 //
+
+// '🍎'--------------------'🍎' Iterating Array Methods (Lesson 8) '🍎'--------------------'🍎'
+
+// ******************** .forEach ********************
+
+// const numbers = [5, 10, 15, 20, 25];
+// numbers.forEach(function (element, index, array) {
+//   console.log(`Index ${index}, value ${element}, array ${array}`);
+// });
+
+// ******************** .map() ********************
+
+// const planets = ['Earth', 'Mars', 'Venus', 'Jupiter'];
+// const lower = planets.map(element => element.toLowerCase());
+// console.log('lower: ', lower);
+// const upper = planets.map((planet, i) => {
+//   console.log(`${i} planet is ${planet}`);
+//   return planet.toUpperCase();
+// });
+// console.log('upper: ', upper);
+// -----------------------------------------------------------------------------
+// const holders = [
+//   { name: 'mango', score: 83 },
+//   { name: 'poly', score: 59 },
+//   { name: 'ajax', score: 37 },
+//   { name: 'kiwi', score: 94 },
+//   { name: 'houston', score: 64 },
+// ];
+// const names = holders.map(
+//   holder =>
+//     holder.name.at(0).toUpperCase() +
+//     holder.name.substring(1, holder.name.length - 1) +
+//     holder.name.at(holder.name.length - 1).toUpperCase()
+// );
+// console.log('names: ', names);
+
+// ******************** .flatMap() ********************
+
+// const students = [
+//   { name: 'Mango', courses: ['mathematics', 'physics'] },
+//   { name: 'Poly', courses: ['informatics', 'mathematics'] },
+//   { name: 'Kiwi', courses: ['physics', 'biology'] },
+// ];
+// const mapArray = students.map(student => student.courses);
+// console.log('mapArray: ', mapArray);
+
+// const flatmapArray = students.flatMap(student => student.courses);
+// console.log('flatmapArray: ', flatmapArray);
+
+// const courseList = [];
+// students
+//   .flatMap(student => student.courses)
+//   .forEach(arg => {
+//     if (!courseList.includes(arg)) {
+//       courseList.push(arg);
+//     }
+//   });
+// console.log('courseList: ', courseList);
+
+// ******************** .filter() Method ********************
+
+// const students = [
+//   { name: 'Mango', courses: ['mathematics', 'physics'] },
+//   { name: 'Poly', courses: ['informatics', 'mathematics'] },
+//   { name: 'Kiwi', courses: ['physics', 'biology'] },
+// ];
+// const courseList = students
+//   .flatMap(student => student.courses)
+//   .filter((course, index, array) => array.indexOf(course) === index);
+// console.log('courseList: ', courseList);
+// -----------------------------------------------------------------------------
+// const HIGH_SCORE = 80;
+// const students = [
+//   { name: 'Mango', score: 83 },
+//   { name: 'Poly', score: 59 },
+//   { name: 'Ajax', score: 37 },
+//   { name: 'Kiwi', score: 94 },
+//   { name: 'Houston', score: 64 },
+// ];
+// const best = students.filter(student => student.score >= HIGH_SCORE);
+// console.table(best);
+
+// ******************** .findIndex() ********************
+
+// const numbers = [2, 10, 87, 8, 15, 101, 20, 127, 25];
+// const indexOfMoreHundred = numbers.findIndex(number => number > 100);
+// console.log('indexOfMoreHundred: ', indexOfMoreHundred);
+
+// ******************** .sort() ********************
+
+// const scores = [27, 2, 41, 4, 7, 3, 75];
+// scores.sort();
+// //  //  The ordinal number of uppercase letters is less than that of lowercase letters.
+// const letters = ['b', 'B', 'a', 'A', 'c', 'C'];
+// letters.sort();
+// console.log(letters); // ['A', 'B', 'C', 'a', 'b', 'c']
+
+// ******************** .localeCompare() ********************
+
+// const students = ['Vika', 'Andrey', 'oleg', 'Julia', 'boris', 'Katya'];
+// const inAlphabetOrder = [...students].sort((a, b) => a.localeCompare(b));
+// console.log(inAlphabetOrder); // ['Andrey', 'Boris', 'Julia', 'Katya', 'Oleg', 'Vika']
+// const inReversedOrder = [...students].sort((a, b) => b.localeCompare(a));
+// console.log(inReversedOrder); // ['Vika', 'Oleg', 'Katya', 'Julia', 'Boris', 'Andrey']
+// -----------------------------------------------------------------------------
+// const students = [
+//   { name: 'Mango', score: 83 },
+//   { name: 'poly', score: 59 },
+//   { name: 'Ajax', score: 37 },
+//   { name: 'kiwi', score: 94 },
+// ];
+// const sortByName = students.sort((a, b) => a.name.localeCompare(b.name));
+// console.table(sortByName);
+// const sortByScore = students.sort((a, b) => b.score - a.score);
+// console.table(sortByScore);
+
+// ******************** .reduce() ********************
+
+// const items = [2, 10, 87, 8, 15, 101, 20, 127, 25];
+
+// const summNumbers = items.reduce(
+//   (accumulator, item) => accumulator + item,
+//   'numbers - '
+// );
+// console.log('summNumbers: ', summNumbers);
+
+// ******************** test ********************
+
+// const students = [
+//   { name: 'Mango', score: 83, courses: ['mathematics', 'physics', 'biology'] },
+//   { name: 'Poly', score: 59, courses: ['informatics', 'mathematics'] },
+//   { name: 'Ajax', score: 37, courses: ['physics', 'biology', 'chemistry'] },
+//   { name: 'Kiwi', score: 94, courses: ['literature', 'informatics'] },
+// ];
+// const sortCourseList = students
+//   .flatMap(student => student.courses)
+//   .filter((course, index, courseList) => courseList.indexOf(course) === index)
+//   .sort((a, b) => a.localeCompare(b));
+// console.table(sortCourseList);
+// -----------------------------------------------------------------------------
+// const tweets = [
+//   { id: '000', position: 1, likes: 5, tags: ['js', 'nodejs'] },
+//   { id: '001', position: 4, likes: 2, tags: ['html', 'css'] },
+//   { id: '002', position: 2, likes: 17, tags: ['html', 'js', 'nodejs'] },
+//   { id: '003', position: 6, likes: 8, tags: ['css', 'react'] },
+//   { id: '004', position: 9, likes: 0, tags: ['js', 'nodejs', 'react'] },
+// ];
+// const insta = [
+//   { id: '000', position: 1, likes: 3, tags: ['js', 'nodejs', 'css'] },
+//   { id: '001', position: 11, likes: 6, tags: ['html', 'css', 'nodejs', 'js'] },
+//   { id: '002', position: 8, likes: 11, tags: ['html', 'js', 'nodejs'] },
+//   { id: '003', position: 5, likes: 0, tags: ['css', 'react', 'nodejs'] },
+//   { id: '004', position: 6, likes: 3, tags: ['js', 'nodejs', 'react'] },
+// ];
+// const likesTotal = tweets.reduce((total, tweet) => total + tweet.likes, 0);
+// console.log('likesTotal: ', likesTotal);
+// const countTotal = (array, property) =>
+//   array.reduce((total, number) => total + number[property], 0);
+// console.log('countTotal(tweets) position: ', countTotal(tweets, 'position'));
+// console.log('countTotal(insta) likes: ', countTotal(insta, 'likes'));
+// // // ****************************************
+// const tagList = array =>
+//   array
+//     .reduce((tagsArray, item) => {
+//       tagsArray.push(...item.tags);
+//       return tagsArray;
+//     }, [])
+//     .filter((item, i, array) => array.indexOf(item) === i);
+// console.log('tagList(insta): ', tagList(insta));
+// // // ****************************************
+// const getTagsMap = social => social.flatMap(element => element.tags);
+// const getTagsReduce = social =>
+//   social.reduce((acc, elem) => {
+//     acc.push(...elem.tags);
+//     return acc;
+//   }, []);
+// console.log('insta tags: ', getTagsMap(insta));
+// console.log('tweets tags: ', getTagsReduce(tweets));
+// const tagsTweet = getTagsMap(tweets);
+// const tagsInsta = getTagsReduce(insta);
+
+// const getTagCount = tags =>
+//   tags.reduce((acc, tag) => {
+//     if (!acc.hasOwnProperty(tag)) {
+//       acc[tag] = 0;
+//     }
+//     acc[tag] += 1;
+//     return acc;
+//   }, {});
+// console.table(getTagCount(tagsTweet));
+// console.table(getTagCount(tagsInsta));
+// -----------------------------------------------------------------------------
+
+//
+//
 //
 //
 //
@@ -1500,7 +1712,6 @@
 //
 //
 
-// '🍎'--------------------'🍎' Iterating Array Methods (Lesson 8) '🍎'--------------------'🍎'
 // '🍎'--------------------'🍎' The keyword this (Lesson 9) '🍎'--------------------'🍎'
 // '🍎'--------------------'🍎' Prototypes and Classes (Lesson 10) '🍎'--------------------'🍎'
 // '🍎'--------------------'🍎' Destructuring and spread/rest (Lesson 11) '🍎'--------------------'🍎'
@@ -1561,4 +1772,3 @@
 // -----------------------------------------------------------------------------
 // прикладні додатковізадачі.
 // -----------------------------------------------------------------------------
-//

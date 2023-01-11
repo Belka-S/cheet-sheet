@@ -26,7 +26,7 @@
           <li><a href="#objects">Objects (Lesson 5)</a></li>
           <li><a href="#destructuring">Destructuring and spread/rest (Lesson 6)</a></li>
           <li><a href="#callbacks">Callbacks and Arrow Functions (Lesson 7)</a></li>
-          <li><a href="#iterating">Iterating Array Methods (Lesson 8)</a></li>
+          <li><a href="#iterating">Array Iteration Methods (Lesson 8)</a></li>
           <li><a href="#keyword">The keyword this (Lesson 9)</a></li>
           <li><a href="#prototypes">Prototypes and Classes (Lesson 10)</a></li>
           <li><a href="#dom">DOM (Lesson 11)</a></li>
@@ -493,8 +493,8 @@
         <li>const <i>object = {propertyKey: value1,</i> <b>[variableName]</b><i>: value2, ...}</i> - to add a property
           with a name that you do not know, as it is stored as the value of a variable or as the result of a function,
           the value of a <b>computed property</b> can be any valid expression;</li>
-        <li><b>fnName: function() {</b>\\Body<b>}</b> or <b>fnName() {</b>\\Body<b>}</b> - to store functions for
-          working with this data;</li>
+        <li><b>fnName:</b> function<b>() {</b>\\Body<b>}</b> <i>or</i> <b>fnName() {</b>\\Body<b>}</b> - to store
+          function (<b>object method</b>) for working with the object's (<b>model's</b>) data;</li>
         <li><b>this.</b>propertyKey - to access the properties in object methods, we refer to it through
           <b><i>this</i></b> and then, as usual, to its properties using dot notation.
         </li>
@@ -502,9 +502,10 @@
       <h3>Iteration</h3>
       <ul>
         <li>
-          <b>for (</b><i>const key</i> <b>in</b> <i>objectName</i><b>) {</b> \\ - to iterate over objects<br>
-          <i>key</i>; \\ - to access properties<br>
-          <i>objectName</i><b>[</b><i>key</i><b>]</b>;<b>}</b> \\ - to access values of the proherties;<br>
+          <b>for (</b><i>const key</i> <b>in</b> <i>objectName</i><b>) {</b> _ _ _ to iterate over objects,<br>
+          <i>key</i>; _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ to access properties,<br>
+          <i>objectName</i><b>[</b><i>key</i><b>]</b>;<b>}</b> _ _ _ _ _ _ _ _ _ _ _ to access values of the
+          proherties;<br>
         </li>
         <li><b>hasOwnProperty(</b><i>key</i><b>)</b> method - returns a boolean indicating whether the object has the
           specified property as its own property or inherited one;</li>
@@ -599,26 +600,39 @@
       </a>
       <h3>Callbacks</h3>
       <p>Callbacks are used to process user actions on the page, process requests to the server, execute unknown
-        functions, etc. This is what they are used for: these are functions intended for deferred execution.
-        <b>Callback</b> is a function that is passed as an argument to another function, and the latter calls such
-        function. <b>Higher-order</b> function is a function that takes other functions as parameters or returns a
-        function as a result. <b>Inline callback</b> is a function declared immediately when calling the function to
-        which the callback is being passeв and will be available only as a parameter value and nowhere else in the code.
-        Any function can assume an arbitrary number of callbacks.
+        functions, etc. and intended for deferred execution. <b>Callback</b> is a function that is passed as an argument
+        to another function, and the latter calls such function. <b>Higher-order</b> function is a function that takes
+        other functions as parameters or returns a function as a result: <br>
       </p>
+      <span>
+        function <b>callbackName(</b>item<b>) {</b>\\Logic whith item<b>}</b>; <br>
+        function <b>higherOrderName(</b>item, element, callback<b>) {</b>\\Logic whith element;
+        callback(element);<b>}</b> <br>
+        <b>higherOrderName(</b>'item', 'element', callbackName<b>)</b>;
+      </span>
+      <p><b>Inline callback</b> is a function declared immediately when calling the function to which the callback is
+        being passed and will be available only as a parameter value and nowhere else in the code. Any function can
+        assume an arbitrary number of callbacks.</p>
+      <span>
+        function <b>higherOrderName(</b>item, element, callback<b>) {</b>\\Logic whith element;
+        callback(element);<b>}</b> <br>
+        <b>higherOrderName(</b>'item', 'element', function <b>callbackName(</b>item<b>) {</b>\\Logic whith
+        item<b>}</b>;<b>)</b>;
+      </span>
       <h3>Arrow Functions</h3>
       <p>Arrow functions are created as a function expression, and if the function is not anonymous then it must be
         assigned to a variable.</p>
       <ul>
-        <li>const arrowFn <b>=</b> (param1, param2, param3) <b>=></b> {\\Fn body} - several parameters;</li>
-        <li>const arrowFn <b>=</b> param1 <b>=></b> {\\Fn body} - one parameter;</li>
-        <li>const arrowFn <b>=</b> () <b>=></b> {\\Fn body} - no parameters;</li>
-        <li>const arrowFn = (a, b, c) => {return a + b + c;} - <b>explicit return</b> when there are curly braces, and
-          the function must return a value;</li>
-        <li>const arrowFn = (a, b, c) => a + b + c - <b>implicit return</b> will return the result of expression;</li>
-        <li>const arrowFn <b>=</b> (<b>...args</b>) <b>=></b> {\\Fn body} - there is no local variable <i>arguments</i>
-          inside, to collect all arguments into an array, the <b>rest</b> operation is used;</li>
-        <li>array.<b>forEach</b>(<i>(element, index)</i> <b>=></b> {\\Fn body}) - callbacks for array iteration methods;
+        <li>const arrowFn <b>= (</b>param1, param2, param3<b>) => {</b>\\Fn body<b>}</b> - several parameters;
+        </li>
+        <li>const arrowFn <b>=</b> param1 <b>=> {</b>\\Fn body<b>}</b> - one parameter;</li>
+        <li>const arrowFn <b>= () => {</b>\\Fn body<b>}</b> - no parameters;</li>
+        <li>const arrowFn <b>= (</b>a, b, c<b>) => {return</b> a + b + c;<b>}</b> - <b><i>explicit</i></b> return when
+          there are curly braces, and the function must return a value;</li>
+        <li>const arrowFn <b>= (</b>a, b, c<b>) =></b> a + b + c - <b><i>implicit</i></b> return will return the result
+          of expression;</li>
+        <li>const arrowFn <b>= (...args) => {</b>\\Fn body<b>}</b> - there is no local variable <i>arguments</i>
+          inside, to collect all arguments into an array, the <b>rest</b> operation is used.</li>
       </ul>
 
       <h3>Code Types</h3>
@@ -631,7 +645,7 @@
     </section>
     <section class="iterating">
       <a href=" #goit">
-        <h2 id="iterating">Iterating Array Methods (Lesson 8)</h2>
+        <h2 id="iterating">Array Iteration Methods (Lesson 8)</h2>
       </a>
       <p>JavaScript has array methods that come from functional languages. Most of them are pure functions. They create
         a new array, populate it, applying the specified callback to the value of each element, and then return this new
@@ -642,42 +656,57 @@
       </p>
       <h3>Syntax</h3>
       <ul>
-        <li>array.<b>method(</b>function (element, index, array<b>) {</b>//logic for each iteration}[,
+        <li>array.<b>method(</b>callbackFn[, thisArg]<b>)</b> - callback function;</li>
+        <li>array.<b>method(</b>function (element, index, array)<b> {</b>//logic for each iteration<b>}</b>[,
           thisArg]<b>)</b> - inline callback function;
         </li>
-        <li>array.<b>method(</b>callbackFn[, thisArg]<b>)</b> - callback function;</li>
         <li>array.<b>method(</b>(element, index, array)<b> => {</b>//logic for each iteration<b>})</b> - arrow
           function.</li>
       </ul>
       <h3>Array Iteration Methods</h3>
       <ul>
-        <li><b>.map()</b> method - to transform an array, it writes its result to a new array, which will be the method
-          execution result;</li>
+        <li><b>.forEach(</b><i>(element, index, array)</i> <b>=> {</b>//logic for each iteration<b>})</b> - executes a
+          provided function once for each array element, execution of the <i>forEach</i> can't be interrupted;</li>
+        <li><b>.map()</b> method - to transform an array, returns a new array of the same length, ccan be used to change
+          every element of an array;</li>
         <li><b>.flatMap()</b> method is similar to the <i>map()</i> method, but it is used in cases where the result is
-          a multidimensional array that needs to be "flattened"</li>
+          a multidimensional array that needs to be "flattened", tnew array is "flattened" by one (one nesting);</li>
         <li><b>.filter()</b> method - to copy array whith filtering, when more than one element from a collection should
           be selected using a specific criterion;</li>
         <li><b>.find()</b> method - to find and return the first matching element, after which the array iteration
           stops;</li>
-        <li><b>.findIndex()</b> method - to search with more complex conditions than just equality, it is used both for
-          searching through an array of primitives and objects;</li>
-        <li><b>.every()</b> method - to check if <i>all</i> array elements pass the test provided by the callback,
-          returns <i>true</i> or <i>false</i>;</li>
-        <li><b>.some()</b> method - to check if <i>any</i> array element pass the test provided by the callback, returns
-          <i>true</i> or <i>false</i>;
+        <li><b>.findLast()</b> method - to find and return the last matching element, after which the array iteration
+          stops;</li>
+        <li><b>.findIndex()</b> method - to find and return the index of the <i>first</i> element that satisfies a
+          condition, that is, when the callback returns true;</li>
+        <li><b>.every()</b> method - returns <i>true</i> if all array elements satisfy a condition, otherwise returns
+          <i>false</i>;
         </li>
-        <li><b>.sort(</b>[(a, b) => a - b)]<b>)</b> method - to sort the elements of an array, but unlike other
-          iterating methods, it sorts the original array;</li>
-        <li><b>.reduce(</b>(previousValue, element, index, array) <b>=></b> {// Callback body}, initialValue<b>)</b> -
+        <li><b>.some()</b> method - returns <i>true</i> if at least one array element satisfies a condition, otherwise
+          returns <i>false</i></i>;
+        </li>
+        <li><b>.sort()</b> method - to sort the elements of an <i>original</i> array;</li>
+        <li><b>.reduce(</b>(accumulator, element, index, array) <b>=></b> {// Callback body}, initialValue<b>)</b> -
           to process each array element, storing the intermediate result as an accumulator.</li>
+      </ul>
+      <h3>Useful Patterns</h3>
+      <ul>
+        <li><b>.filter(</b>(element, index, array) <b>=></b> array.indexOf(element) <b>===</b> index<b>)</b> - filtering
+          <b>unique</b> elements;
+        </li>
+        <li><b>[...</b>numbers<b>].sort(</b>(a, b) <b>=></b> a <b>-</b> b<b>)</b> method - to copy an array of numbers
+          and sort the <b>numbers</b> in <i>ascending</i> order;
+        </li>
+        <li><b>[...</b>words<b>].sort(</b>(a, b) <b>=></b> a.localeCompare(b)<b>)</b> method - to
+          copy an array of words and sort the <b>words</b> in <i>ascending</i> order; <br>
+        <li>array.<b>reduce(</b>(acc, tag) <b>=></b> { if (!acc.hasOwnProperty(tag)) {acc[tag] = 0;} <br>
+          acc[tag] += 1; return acc;}, {}<b>)</b>; - to <b>count</b> the number of <b>identical</b> array elements.</li>
       </ul>
       <h3>Method Chaining</h3>
       <p>The method chain can be of arbitrary length, but usually no more than 2-3 operations. First, iteration methods
         are used for relatively simple collection operations. Second, calling each subsequent method is an additional
         array iteration, which, with a large number of elements, can affect performance.</p>
     </section>
-
-
     <section class="keyword">
       <a href=" #goit">
         <h2 id="keyword">The keyword this (Lesson 9)</h2>
